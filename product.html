@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanasari Store - Batik Fashion Modern Indonesia</title>
+  <meta name="description" content="Kanasari Store - toko batik fashion modern terpercaya. Temukan koleksi batik pria, wanita, couple, dan dress batik berkualitas premium. Gratis ongkir, pembayaran aman." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=desktop-plus10a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>K</text></svg>" />
+</head>
+<body>
+<!-- ==============================
+     ANNOUNCEMENT BAR
+     ============================== -->
+<div class="announcement-bar" id="ann-bar">
+   Gratis Ongkir untuk pembelian di atas Rp 200.000!
+  <a href="#products">Belanja Sekarang -></a>
+</div>
+
+
+<!-- ==============================
+     NAVBAR
+     ============================== -->
+<nav id="navbar" role="navigation" aria-label="Navigasi utama">
+  <div class="container">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" aria-label="Kanasari Store - Home">
+        <img
+          src="assets/img/logo.png"
+          alt="Kanasari"
+          onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style=\'font-size: 1.65rem;font-weight:700;color:#E8725A;letter-spacing:1px;\'>KANASARI</span>'"
+        />
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"   class="nav-link active" id="nl-home">Beranda</a></li>
+        <li><a href="#products"    class="nav-link"        id="nl-shop">Shop</a></li>
+        <li><a href="#categories"  class="nav-link"        id="nl-cat">Kategori</a></li>
+        <li><a href="#"            class="nav-link"        id="nl-koleksi">Koleksi</a></li>
+        <li><a href="affiliate-login.html" class="nav-link" id="nl-aff">Affiliasi</a></li>
+        <li><a href="#about-strip" class="nav-link"        id="nl-about">Tentang Kami</a></li>
+      </ul>
+
+      <!-- Search -->
+      <div class="nav-search" role="search">
+        <label for="nav-search-input" class="visually-hidden">Cari produk</label>
+        <input
+          type="search"
+          id="nav-search-input"
+          placeholder="Cari produk batik..."
+          autocomplete="off"
+        />
+        <button class="nav-search-btn" aria-label="Cari">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+
+      <!-- Nav Action Icons -->
+      <div class="nav-actions">
+        <a href="login.html" class="nav-action-btn" id="nav-account" aria-label="Akun Saya">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <button class="nav-action-btn" id="cart-toggle-btn" aria-label="Keranjang" style="position:relative">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="nav-badge" id="cart-count" aria-label="3 item">3</span>
+        </button>
+        <!-- Mobile Toggle -->
+        <button class="nav-toggle" id="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
+          <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="nav-mobile" id="nav-mobile">
+  <ul class="nav-mobile-links">
+    <li><a href="index.html" class="nav-mobile-link">Beranda</a></li>
+    <li><a href="index.html#products" class="nav-mobile-link">Shop</a></li>
+    <li><a href="index.html#categories" class="nav-mobile-link">Kategori</a></li>
+    <li><a href="#" class="nav-mobile-link">Koleksi</a></li>
+    <li><a href="affiliate-login.html" class="nav-mobile-link">Affiliasi</a></li>
+    <li><a href="index.html#about-strip" class="nav-mobile-link">Tentang Kami</a></li>
+  </ul>
+</div>
+
+  <!-- ========== PRODUCT DETAILS ========== -->
+  <style>
+    .product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .product-reviews-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+    @media (max-width: 768px) {
+      .product-detail-grid { grid-template-columns: 1fr; gap: 32px; }
+      .product-reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+  
+    @media (max-width: 768px) {
+      .product-detail-section { padding: 36px 0 !important; }
+      .product-detail-grid { gap: 24px; }
+      .thumbnail-list { gap: 10px !important; overflow-x: auto; padding-bottom: 4px; }
+      .thumbnail { width: 76px !important; height: 76px !important; flex: 0 0 76px; }
+      .product-info h1 { font-size: clamp(1.75rem, 7vw, 2.1rem) !important; }
+      .product-info p, .product-info label, .product-info span { font-size: 1rem !important; }
+      .product-info .price-main { font-size: 1.45rem !important; }
+      .product-info .price-original { font-size: 1rem !important; }
+      .product-info button { font-size: 1rem !important; }
+      .product-info > div { min-width: 0; }
+    }
+</style>
+  <section class="product-detail-section" style="padding: 60px 0;">
+    <div class="container">
+      
+      <!-- Breadcrumb -->
+      <div style="font-size: 1.2rem; margin-bottom: 24px; color: var(--neutral-400);">
+        <a href="index.html" style="color: var(--neutral-600);">Beranda</a> &gt; 
+        <a href="index.html#categories" style="color: var(--neutral-600);">Wanita</a> &gt; 
+        <span style="color: var(--primary);">Dress Batik Parang Kusuma</span>
+      </div>
+
+      <div class="product-detail-grid">
+        <!-- Left: Image Gallery -->
+        <div class="product-gallery">
+          <div class="main-image" style="border-radius: var(--r-xl); overflow: hidden; background: var(--neutral-100); margin-bottom: 16px; border: 1.5px solid var(--neutral-200);">
+            <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80" alt="Batik Utama" style="width: 100%; height: auto; display: block;" id="mainProductImage" />
+          </div>
+          <div class="thumbnail-list" style="display: flex; gap: 16px;">
+            <div class="thumbnail" style="width: 5rem; height: 5rem; border-radius: var(--r-lg); overflow: hidden; border: 2px solid var(--primary); cursor: pointer;" onclick="document.getElementById('mainProductImage').src=this.querySelector('img').src">
+              <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+            <div class="thumbnail" style="width: 5rem; height: 5rem; border-radius: var(--r-lg); overflow: hidden; border: 2px solid transparent; cursor: pointer; opacity: 0.7;" onclick="document.getElementById('mainProductImage').src=this.querySelector('img').src; this.style.borderColor='var(--primary)'; this.style.opacity='1';">
+              <img src="https://images.unsplash.com/photo-1615967000854-522649061033?auto=format&fit=crop&w=800&q=80" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+            <div class="thumbnail" style="width: 5rem; height: 5rem; border-radius: var(--r-lg); overflow: hidden; border: 2px solid transparent; cursor: pointer; opacity: 0.7;" onclick="document.getElementById('mainProductImage').src=this.querySelector('img').src; this.style.borderColor='var(--primary)'; this.style.opacity='1';">
+              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Product Info -->
+        <div class="product-info">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+            <h1 style="font-size: 2.7rem; font-weight: 700; color: var(--neutral-800); font-family: var(--font-heading); line-height: 1.2;">Dress Batik Parang Kusuma Premium</h1>
+            <button style="background:none; border:none; color:var(--primary); cursor:pointer; padding:8px; border-radius:var(--r-full); background:var(--primary-pale);" title="Bagikan ke Sosial Media">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            </button>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <div style="display: flex; color: #F59E0B;">
+              
+            </div>
+            <span style="font-size: 1.2rem; color: var(--neutral-400);">(4.9/5) dari 124 Ulasan</span>
+            <span style="font-size: 1.2rem; color: var(--primary); font-weight: 500; background: var(--primary-pale); padding: 4px 12px; border-radius: var(--r-full);">Terjual 350+</span>
+          </div>
+          
+          <div class="product-card-price" style="margin-bottom: 24px;">
+            <span class="price-main" style="font-size: 3rem; color: var(--primary); font-weight: 700;">Rp 450.000</span>
+            <span class="price-original" style="font-size: 1.8rem; color: var(--neutral-400); text-decoration: line-through;">Rp 600.000</span>
+          </div>
+          
+          <p style="font-size: 1.35rem; color: var(--neutral-500); line-height: 1.7; margin-bottom: 32px;">
+            Dress batik dengan motif Parang Kusuma yang melambangkan keanggunan dan kekuatan. Dibuat dari bahan katun primisima yang sejuk, menyerap keringat, dan jatuh dengan cantik saat dikenakan. Cocok untuk acara formal maupun semi-formal.
+          </p>
+
+          <!-- Variants -->
+          <div style="margin-bottom: 24px;">
+            <label style="display:block; font-size: 1.35rem; font-weight: 600; margin-bottom: 12px;">Ukuran:</label>
+            <div style="display: flex; gap: 12px;">
+              <button style="padding: 12px 20px; font-size: 1.2rem; font-family: var(--font); border: 2px solid var(--neutral-200); background: white; border-radius: var(--r-md); cursor: pointer; font-weight:500;">S</button>
+              <button style="padding: 12px 20px; font-size: 1.2rem; font-family: var(--font); border: 2px solid var(--primary); background: var(--primary-pale); color: var(--primary); border-radius: var(--r-md); cursor: pointer; font-weight:500;">M</button>
+              <button style="padding: 12px 20px; font-size: 1.2rem; font-family: var(--font); border: 2px solid var(--neutral-200); background: white; border-radius: var(--r-md); cursor: pointer; font-weight:500;">L</button>
+              <button style="padding: 12px 20px; font-size: 1.2rem; font-family: var(--font); border: 2px solid var(--neutral-200); background: white; border-radius: var(--r-md); cursor: pointer; font-weight:500;">XL</button>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 32px;">
+            <label style="display:block; font-size: 1.35rem; font-weight: 600; margin-bottom: 12px;">Jumlah:</label>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="display: flex; border: 2px solid var(--neutral-200); border-radius: var(--r-full); overflow: hidden; width: max-content;">
+                <button onclick="let q=document.getElementById('product-qty'); q.value=Math.max(1,parseInt(q.value)-1);" style="padding: 12px 20px; background: white; border: none; font-size: 1.5rem; cursor: pointer; color: var(--neutral-600);">-</button>
+                <input id="product-qty" type="text" value="1" style="width: 3rem; text-align: center; border: none; font-size: 1.35rem; font-weight: 600; font-family: var(--font); color: var(--neutral-800);" readonly />
+                <button onclick="let q=document.getElementById('product-qty'); q.value=Math.min(14,parseInt(q.value)+1);" style="padding: 12px 20px; background: white; border: none; font-size: 1.5rem; cursor: pointer; color: var(--neutral-600);">+</button>
+              </div>
+              <span style="font-size: 1.2rem; color: var(--neutral-500);">Sisa 14 stok</span>
+            </div>
+          </div>
+
+          <!-- Estimasi Ongkir -->
+          <div style="background: var(--neutral-50); padding: 16px 20px; border-radius: var(--r-md); border: 1.5px dashed var(--neutral-300); margin-bottom: 32px; display: flex; align-items: center; gap: 16px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <div>
+              <div style="font-size: 1.2rem; font-weight: 600;">Estimasi Ongkos Kirim</div>
+              <div style="font-size: 1.125rem; color: var(--neutral-500);">Kirim ke <span style="font-weight:600; text-decoration:underline;">Jakarta Selatan</span> mulai dari Rp 12.000</div>
+            </div>
+          </div>
+          
+          <button class="btn btn-primary" style="width: 100%; padding: 20px; font-size: 1.5rem; border-radius: var(--r-full); display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 16px;" onclick="addCart('Dress Batik Parang Kusuma', 'Rp 450.000', parseInt(document.getElementById('product-qty').value) || 1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            TAMBAH KE KERANJANG
+          </button>
+          
+          <button onclick="goToCheckout()" style="width: 100%; padding: 20px; font-size: 1.5rem; font-weight: 600; border-radius: var(--r-full); display: flex; justify-content: center; align-items: center; gap: 12px; background: white; border: 2px solid var(--primary); color: var(--primary); cursor: pointer; transition: all 0.2s; font-family: var(--font);">
+            BELI SEKARANG
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ========== REVIEWS SECTION ========== -->
+  <section style="padding: 60px 0; background: var(--neutral-50); border-top: 1px solid var(--neutral-200);">
+    <div class="container">
+      <h2 style="font-size: 2.4rem; font-family: var(--font-heading); margin-bottom: 32px; text-align: center;">Ulasan Pelanggan</h2>
+      
+      <div class="product-reviews-grid">
+        <!-- Review 1 -->
+        <div style="background: white; padding: 24px; border-radius: var(--r-lg); box-shadow: var(--shadow-sm);">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary-pale); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); font-size: 1.5rem;">A</div>
+            <div>
+              <div style="font-weight: 600; font-size: 1.35rem;">Anisa R.</div>
+              <div style="color: #F59E0B; font-size: 1.05rem;"></div>
+            </div>
+          </div>
+          <p style="font-size: 1.2rem; color: var(--neutral-600); line-height: 1.6;">
+            "Bahannya sangat adem dan jahitan rapi. Cocok dipakai untuk kondangan. Pengiriman juga super cepat!"
+          </p>
+        </div>
+        <!-- Review 2 -->
+        <div style="background: white; padding: 24px; border-radius: var(--r-lg); box-shadow: var(--shadow-sm);">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary-pale); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); font-size: 1.5rem;">D</div>
+            <div>
+              <div style="font-weight: 600; font-size: 1.35rem;">Dewi S.</div>
+              <div style="color: #F59E0B; font-size: 1.05rem;"></div>
+            </div>
+          </div>
+          <p style="font-size: 1.2rem; color: var(--neutral-600); line-height: 1.6;">
+            "Modelnya sangat modern dan pas di badan. Harga sebanding dengan kualitas premiumnya. Mantap Kanasari!"
+          </p>
+        </div>
+        <!-- Review 3 -->
+        <div style="background: white; padding: 24px; border-radius: var(--r-lg); box-shadow: var(--shadow-sm);">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary-pale); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); font-size: 1.5rem;">R</div>
+            <div>
+              <div style="font-weight: 600; font-size: 1.35rem;">Rini M.</div>
+              <div style="color: #F59E0B; font-size: 1.05rem;"></div>
+            </div>
+          </div>
+          <p style="font-size: 1.2rem; color: var(--neutral-600); line-height: 1.6;">
+            "Bagus banget, cuma sayang kemarin pas beli ukuran M ternyata ngepas banget di aku. Tapi overal puas."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- ==============================
+     FOOTER
+     ============================== -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div>
+        <div class="footer-logo-wrap">
+          <img
+            src="assets/img/logo.png"
+            alt="Kanasari"
+            onerror="this.style.display='none'"
+          />
+          <span class="footer-logo-name">KANASARI</span>
+        </div>
+        <p class="footer-desc">
+          Kanasari Store - toko batik fashion modern Indonesia yang menghadirkan koleksi premium untuk setiap momen spesialmu.
+        </p>
+        <nav class="footer-socials" aria-label="Media sosial">
+          <a href="https://www.tiktok.com/@kanasaristyle24" class="footer-social" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer-social" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Belanja -->
+      <nav aria-label="Belanja">
+        <h3 class="footer-col-title">Belanja</h3>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link" id="fl-new">Semua Produk</a></li>
+          <li><a href="#" class="footer-link" id="fl-pria">Batik Pria</a></li>
+          <li><a href="#" class="footer-link" id="fl-wanita">Batik Wanita</a></li>
+          <li><a href="#" class="footer-link" id="fl-dress">Dress Batik</a></li>
+          <li><a href="#" class="footer-link" id="fl-couple">Couple</a></li>
+          <li><a href="#" class="footer-link" id="fl-sale">Promo & Sale</a></li>
+        </ul>
+      </nav>
+
+      <!-- Informasi -->
+      <nav aria-label="Informasi">
+        <h3 class="footer-col-title">Informasi</h3>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link" id="fl-tentang">Tentang Kami</a></li>
+          <li><a href="#" class="footer-link" id="fl-cara-beli">Cara Belanja</a></li>
+          <li><a href="affiliate-login.html" class="footer-link" id="fl-aff">Program Affiliasi</a></li>
+          <li><a href="#" class="footer-link" id="fl-hadiah">Hadiah Terbaru</a></li>
+          <li><a href="#" class="footer-link" id="fl-ulasan">Ulasan Pelanggan</a></li>
+          <li><a href="#" class="footer-link" id="fl-blog">Blog Batik</a></li>
+        </ul>
+      </nav>
+
+      <!-- Bantuan -->
+      <nav aria-label="Bantuan">
+        <h3 class="footer-col-title">Bantuan</h3>
+        <ul class="footer-links">
+          <li><a href="account/index.html" class="footer-link" id="fl-akun">Akun Saya</a></li>
+          <li><a href="#" class="footer-link" id="fl-tracking">Lacak Pesanan</a></li>
+          <li><a href="#" class="footer-link" id="fl-retur">Kebijakan Retur</a></li>
+          <li><a href="#" class="footer-link" id="fl-ukuran">Panduan Ukuran</a></li>
+          <li><a href="#" class="footer-link" id="fl-privasi">Kebijakan Privasi</a></li>
+          <li><a href="#" class="footer-link" id="fl-faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copy">Copyright 2026 Kanasari Store. Dibuat dengan  di Indonesia.</p>
+      <div class="footer-payments" aria-label="Metode pembayaran">
+        <span class="payment-pill">XENDIT</span>
+        <span class="payment-pill">QRIS</span>
+        <span class="payment-pill">GoPay</span>
+        <span class="payment-pill">OVO</span>
+        <span class="payment-pill">DANA</span>
+        <span class="payment-pill">VA BANK</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ==============================
+     CART SIDEBAR
+     ============================== -->
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+<aside class="cart-sidebar" id="cart-sidebar" role="dialog" aria-modal="true" aria-label="Keranjang belanja">
+
+  <div class="cart-header">
+    <h2 class="cart-title">Keranjang Belanja</h2>
+    <button class="cart-close" id="cart-close-btn" aria-label="Tutup keranjang">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <div class="cart-body" id="cart-body">
+    <!-- Cart Item 1 -->
+    <div class="cart-item" id="ci-1">
+      <img src="assets/img/product_1.png" alt="Kemeja Batik Arjuna" class="cart-item-img" loading="lazy" width="76" height="95"/>
+      <div class="cart-item-info">
+        <div class="cart-item-name">Kemeja Batik Arjuna</div>
+        <div class="cart-item-variant">Ukuran: M - Warna: Coklat</div>
+        <div class="cart-item-price">Rp 349.000</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="chQty(-1,1)" aria-label="Kurang">-</button>
+          <span class="qty-val" id="qv-1">1</span>
+          <button class="qty-btn" onclick="chQty(1,1)"  aria-label="Tambah">+</button>
+        </div>
+      </div>
+      <button class="cart-item-remove" onclick="rmCart(1)" aria-label="Hapus">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+      </button>
+    </div>
+
+    <!-- Cart Item 2 -->
+    <div class="cart-item" id="ci-2">
+      <img src="assets/img/product_2.png" alt="Blus Batik Srikandi" class="cart-item-img" loading="lazy" width="76" height="95"/>
+      <div class="cart-item-info">
+        <div class="cart-item-name">Blus Batik Srikandi</div>
+        <div class="cart-item-variant">Ukuran: S - Warna: Coral</div>
+        <div class="cart-item-price">Rp 235.000</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="chQty(-1,2)" aria-label="Kurang">-</button>
+          <span class="qty-val" id="qv-2">2</span>
+          <button class="qty-btn" onclick="chQty(1,2)"  aria-label="Tambah">+</button>
+        </div>
+      </div>
+      <button class="cart-item-remove" onclick="rmCart(2)" aria-label="Hapus">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+      </button>
+    </div>
+
+    <!-- Cart Item 3 -->
+    <div class="cart-item" id="ci-3">
+      <img src="assets/img/product_4.png" alt="Dress Batik Lestari" class="cart-item-img" loading="lazy" width="76" height="95"/>
+      <div class="cart-item-info">
+        <div class="cart-item-name">Dress Batik Lestari</div>
+        <div class="cart-item-variant">Ukuran: M - Warna: Navy</div>
+        <div class="cart-item-price">Rp 275.000</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn" onclick="chQty(-1,3)" aria-label="Kurang">-</button>
+          <span class="qty-val" id="qv-3">1</span>
+          <button class="qty-btn" onclick="chQty(1,3)"  aria-label="Tambah">+</button>
+        </div>
+      </div>
+      <button class="cart-item-remove" onclick="rmCart(3)" aria-label="Hapus">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+      </button>
+    </div>
+  </div><!-- /cart-body -->
+
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span class="cart-subtotal-val" id="cart-total">Rp 1.094.000</span>
+    </div>
+    <p class="cart-note">Ongkos kirim & diskon dihitung saat checkout.</p>
+    <button class="cart-checkout-btn" id="cart-checkout-btn" onclick="goToCheckout()">
+      Lanjut ke Checkout ->
+    </button>
+  </div>
+
+</aside>
+
+<!-- ==============================
+     TOAST
+     ============================== -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <div class="toast-check">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <span id="toast-msg">Berhasil ditambahkan!</span>
+</div>
+
+<!-- SCRIPTS -->
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1772 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanasari Store - Batik Fashion Modern Indonesia</title>
+    <meta
+      name="description"
+      content="Kanasari Store - toko batik fashion modern terpercaya. Temukan koleksi batik pria, wanita, couple, dan dress batik berkualitas premium. Gratis ongkir, pembayaran aman."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css?v=desktop-plus10a" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>K</text></svg>"
+    />
+  </head>
+  <body>
+    <!-- ==============================
+     ANNOUNCEMENT BAR
+     ============================== -->
+    <div class="announcement-bar" id="ann-bar">
+      Gratis Ongkir untuk pembelian di atas Rp 200.000!
+      <a href="#products">Belanja Sekarang -></a>
+    </div>
+
+    <!-- ==============================
+     NAVBAR
+     ============================== -->
+    <nav id="navbar" role="navigation" aria-label="Navigasi utama">
+      <div class="container">
+        <div class="nav-inner">
+          <!-- Logo -->
+          <a
+            href="index.html"
+            class="nav-logo"
+            aria-label="Kanasari Store - Home"
+          >
+            <img
+              src="assets/img/logo.png"
+              alt="Kanasari"
+              onerror="
+                this.onerror = null;
+                this.src = '';
+                this.parentElement.innerHTML =
+                  '<span style=\'font-size: 1.375rem;font-weight:700;color:#E8725A;letter-spacing:1px;\'>KANASARI</span>';
+              "
+            />
+          </a>
+
+          <!-- Desktop Nav Links -->
+          <ul class="nav-links" role="list">
+            <li>
+              <a href="index.html" class="nav-link active" id="nl-home"
+                >Beranda</a
+              >
+            </li>
+            <li><a href="#products" class="nav-link" id="nl-shop">Shop</a></li>
+            <li>
+              <a href="#categories" class="nav-link" id="nl-cat">Kategori</a>
+            </li>
+            <li><a href="#" class="nav-link" id="nl-koleksi">Koleksi</a></li>
+            <li>
+              <a href="affiliate-login.html" class="nav-link" id="nl-aff"
+                >Affiliasi</a
+              >
+            </li>
+            <li>
+              <a href="#about-strip" class="nav-link" id="nl-about"
+                >Tentang Kami</a
+              >
+            </li>
+          </ul>
+
+          <!-- Search -->
+          <div class="nav-search" role="search">
+            <label for="nav-search-input" class="visually-hidden"
+              >Cari produk</label
+            >
+            <input
+              type="search"
+              id="nav-search-input"
+              placeholder="Cari produk batik..."
+              autocomplete="off"
+            />
+            <button class="nav-search-btn" aria-label="Cari">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Nav Action Icons -->
+          <div class="nav-actions">
+            <a
+              href="login.html"
+              class="nav-action-btn"
+              id="nav-account"
+              aria-label="Akun Saya"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </a>
+            <button
+              class="nav-action-btn"
+              id="cart-toggle-btn"
+              aria-label="Keranjang"
+              style="position: relative"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+              <span class="nav-badge" id="cart-count" aria-label="3 item"
+                >3</span
+              >
+            </button>
+            <!-- Mobile Toggle -->
+            <button
+              class="nav-toggle"
+              id="nav-toggle-btn"
+              aria-label="Menu"
+              aria-expanded="false"
+            >
+              <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="nav-mobile" id="nav-mobile">
+      <ul class="nav-mobile-links">
+        <li><a href="index.html" class="nav-mobile-link">Beranda</a></li>
+        <li><a href="#products" class="nav-mobile-link">Shop</a></li>
+        <li><a href="#categories" class="nav-mobile-link">Kategori</a></li>
+        <li><a href="#" class="nav-mobile-link">Koleksi</a></li>
+        <li>
+          <a href="affiliate-login.html" class="nav-mobile-link">Affiliasi</a>
+        </li>
+        <li><a href="#about-strip" class="nav-mobile-link">Tentang Kami</a></li>
+      </ul>
+    </div>
+
+    <!-- ==============================
+     MAIN CONTENT
+     ============================== -->
+    <main>
+      <!-- ========== HERO ========== -->
+      <section id="hero" aria-label="Banner utama">
+        <div class="container">
+          <div class="hero-inner">
+            <!-- Content -->
+            <div class="hero-content" data-reveal>
+              <div class="hero-badge">Koleksi Terbaru 2026</div>
+              <h1 class="hero-title">
+                Tampil Lebih<br />
+                Stylish dengan<br />
+                <span class="accent">Batik Kanasari</span>
+              </h1>
+              <p class="hero-desc">
+                Batik modern dengan desain kekinian yang cocok untuk setiap
+                momen. Dari kasual harian hingga acara formal yang berkesan.
+              </p>
+              <div class="hero-actions">
+                <a
+                  href="#products"
+                  class="btn btn-primary btn-lg"
+                  id="hero-shop-btn"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path
+                      d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                    />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
+                  Belanja Sekarang
+                </a>
+              </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="hero-image-wrap" data-reveal data-delay="2">
+              <div class="hero-slider" aria-label="Slide koleksi Kanasari">
+                <img
+                  src="assets/img/hero.png"
+                  alt="Pasangan mengenakan batik Kanasari"
+                  class="hero-image hero-slide hero-slide-1"
+                  loading="eager"
+                  width="480"
+                  height="480"
+                />
+                <img
+                  src="assets/img/cat_wanita.png"
+                  alt="Koleksi batik wanita Kanasari"
+                  class="hero-image hero-slide hero-slide-2"
+                  loading="eager"
+                  width="480"
+                  height="480"
+                />
+                <img
+                  src="assets/img/cat_couple.png"
+                  alt="Koleksi batik couple Kanasari"
+                  class="hero-image hero-slide hero-slide-3"
+                  loading="eager"
+                  width="480"
+                  height="480"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== FEATURES ========== -->
+      <section id="features" aria-label="Keunggulan toko">
+        <div class="container">
+          <div class="features-grid">
+            <div class="feature-item" data-reveal>
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-title">Produk Berkualitas</div>
+                <div class="feature-desc">Bahan premium pilihan</div>
+              </div>
+            </div>
+
+            <div class="feature-item" data-reveal data-delay="1">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 6v6l4 2" />
+                </svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-title">Desain Kekinian</div>
+                <div class="feature-desc">Selalu up to date</div>
+              </div>
+            </div>
+
+            <div class="feature-item" data-reveal data-delay="2">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-title">Pengiriman Cepat</div>
+                <div class="feature-desc">Seluruh Indonesia</div>
+              </div>
+            </div>
+
+            <div class="feature-item" data-reveal data-delay="3">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </div>
+              <div class="feature-text">
+                <div class="feature-title">Pembayaran Aman</div>
+                <div class="feature-desc">100% terproteksi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== CATEGORIES ========== -->
+      <section id="categories" class="section" aria-label="Kategori produk">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <h2 class="section-title">Kategori <span>Populer</span></h2>
+            <a href="#products" class="see-all" id="see-all-cats" onclick="filterTab('all')">
+              Lihat Semua
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                width="14"
+                height="14"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="categories-scroll" role="list" data-reveal data-delay="1">
+            <div
+              class="category-item"
+              role="listitem"
+              onclick="filterTab('pria')"
+              aria-label="Kategori Batik Pria"
+            >
+              <div class="category-img-wrap">
+                <img
+                  src="assets/img/cat_pria.png"
+                  alt="Batik Pria"
+                  class="category-img"
+                  loading="lazy"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <span class="category-name">Batik Pria</span>
+            </div>
+
+            <div
+              class="category-item"
+              role="listitem"
+              onclick="filterTab('wanita')"
+              aria-label="Kategori Batik Wanita"
+            >
+              <div class="category-img-wrap">
+                <img
+                  src="assets/img/cat_wanita.png"
+                  alt="Batik Wanita"
+                  class="category-img"
+                  loading="lazy"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <span class="category-name">Batik Wanita</span>
+            </div>
+
+            <div
+              class="category-item"
+              role="listitem"
+              onclick="filterTab('pria')"
+              aria-label="Kategori Kemeja Batik"
+            >
+              <div class="category-img-wrap">
+                <img
+                  src="assets/img/product_1.png"
+                  alt="Kemeja Batik"
+                  class="category-img"
+                  loading="lazy"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <span class="category-name">Kemeja Batik</span>
+            </div>
+
+            <div
+              class="category-item"
+              role="listitem"
+              onclick="filterTab('dress')"
+              aria-label="Kategori Dress Batik"
+            >
+              <div class="category-img-wrap">
+                <img
+                  src="assets/img/cat_dress.png"
+                  alt="Dress Batik"
+                  class="category-img"
+                  loading="lazy"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <span class="category-name">Dress Batik</span>
+            </div>
+
+            <div
+              class="category-item"
+              role="listitem"
+              onclick="filterTab('couple')"
+              aria-label="Kategori Couple Batik"
+            >
+              <div class="category-img-wrap">
+                <img
+                  src="assets/img/cat_couple.png"
+                  alt="Couple Batik"
+                  class="category-img"
+                  loading="lazy"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <span class="category-name">Couple</span>
+            </div>
+
+            <div
+              class="category-item"
+              role="listitem"
+              onclick="filterTab('aksesoris')"
+              aria-label="Kategori Aksesoris"
+            >
+              <div class="category-img-wrap">
+                <img
+                  src="assets/img/product_4.png"
+                  alt="Aksesoris"
+                  class="category-img"
+                  loading="lazy"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <span class="category-name">Aksesoris</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PRODUCTS ========== -->
+      <section id="products" class="section" aria-label="Produk terbaru">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <h2 class="section-title">Produk <span>Terbaru</span></h2>
+            <a href="shop.html" class="see-all" id="see-all-products">
+              Lihat Semua
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                width="14"
+                height="14"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div
+            class="product-filter-tabs"
+            role="group"
+            aria-label="Filter kategori produk"
+          >
+            <button
+              class="filter-tab active"
+              data-cat="all"
+              onclick="filterTab('all')"
+              id="ft-all"
+            >
+              Semua
+            </button>
+            <button
+              class="filter-tab"
+              data-cat="pria"
+              onclick="filterTab('pria')"
+              id="ft-pria"
+            >
+              Batik Pria
+            </button>
+            <button
+              class="filter-tab"
+              data-cat="wanita"
+              onclick="filterTab('wanita')"
+              id="ft-wanita"
+            >
+              Batik Wanita
+            </button>
+            <button
+              class="filter-tab"
+              data-cat="dress"
+              onclick="filterTab('dress')"
+              id="ft-dress"
+            >
+              Dress Batik
+            </button>
+            <button
+              class="filter-tab"
+              data-cat="couple"
+              onclick="filterTab('couple')"
+              id="ft-couple"
+            >
+              Couple
+            </button>
+            <button
+              class="filter-tab"
+              data-cat="aksesoris"
+              onclick="filterTab('aksesoris')"
+              id="ft-aksesoris"
+            >
+              Aksesoris
+            </button>
+          </div>
+
+          <div class="subcategory-filter-tabs" role="group" aria-label="Filter subkategori produk">
+            <button class="sub-filter-tab active" data-subcat="all" onclick="filterSubTab('all')">Semua Pilihan</button>
+            <button class="sub-filter-tab" data-subcat="new" onclick="filterSubTab('new')">New Release</button>
+            <button class="sub-filter-tab" data-subcat="best" onclick="filterSubTab('best')">Bestseller</button>
+            <button class="sub-filter-tab" data-subcat="popular" onclick="filterSubTab('popular')">Populer</button>
+            <button class="sub-filter-tab" data-subcat="low" onclick="filterSubTab('low')">Harga Terendah</button>
+            <button class="sub-filter-tab" data-subcat="high" onclick="filterSubTab('high')">Harga Tertinggi</button>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="products-grid" id="products-grid">
+            <!-- Card 1 -->
+            <article class="product-card" data-cat="pria" data-reveal>
+              <div class="product-card-img-wrap">
+                <img
+                  src="assets/img/product_1.png"
+                  alt="Kemeja Batik Arjuna"
+                  class="product-card-img"
+                  loading="lazy"
+                  width="300"
+                  height="400"
+                />
+                <div class="product-badges">
+                  <span class="badge badge-new">New</span>
+                </div>
+                <div class="product-card-actions">
+                  <button
+                    class="card-action-btn"
+                    onclick="toggleWish(this, 'Kemeja Batik Arjuna')"
+                    aria-label="Wishlist"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </button>
+                  <a
+                    href="product.html"
+                    class="card-action-btn"
+                    aria-label="Lihat detail"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                </div>
+                <button
+                  class="product-quick-add"
+                  onclick="addCart('Kemeja Batik Arjuna', 'Rp 349.000')"
+                  aria-label="Tambah ke keranjang"
+                >
+                  + Keranjang
+                </button>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-cat">Batik Pria</div>
+                <h3 class="product-card-name">
+                  <a
+                    href="product.html"
+                    style="color: inherit; text-decoration: none"
+                    >Kemeja Batik Arjuna</a
+                  >
+                </h3>
+                <div class="product-card-rating">
+                  <div class="stars" aria-label="4.9 bintang">
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rating-count">4.9 (128)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-main">Rp 349.000</span>
+                  <span class="price-original">Rp 420.000</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article
+              class="product-card"
+              data-cat="wanita"
+              data-reveal
+              data-delay="1"
+            >
+              <div class="product-card-img-wrap">
+                <img
+                  src="assets/img/product_2.png"
+                  alt="Blus Batik Srikandi"
+                  class="product-card-img"
+                  loading="lazy"
+                  width="300"
+                  height="400"
+                />
+                <div class="product-badges">
+                  <span class="badge badge-best">Terlaris</span>
+                </div>
+                <div class="product-card-actions">
+                  <button
+                    class="card-action-btn"
+                    onclick="toggleWish(this, 'Blus Batik Srikandi')"
+                    aria-label="Wishlist"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </button>
+                  <a
+                    href="product.html"
+                    class="card-action-btn"
+                    aria-label="Lihat detail"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                </div>
+                <button
+                  class="product-quick-add"
+                  onclick="addCart('Blus Batik Srikandi', 'Rp 235.000')"
+                  aria-label="Tambah ke keranjang"
+                >
+                  + Keranjang
+                </button>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-cat">Batik Wanita</div>
+                <h3 class="product-card-name">
+                  <a
+                    href="product.html"
+                    style="color: inherit; text-decoration: none"
+                    >Blus Batik Srikandi</a
+                  >
+                </h3>
+                <div class="product-card-rating">
+                  <div class="stars" aria-label="4.8 bintang">
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rating-count">4.8 (95)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-main">Rp 235.000</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article
+              class="product-card"
+              data-cat="wanita"
+              data-reveal
+              data-delay="2"
+            >
+              <div class="product-card-img-wrap">
+                <img
+                  src="assets/img/product_3.png"
+                  alt="Kemeja Batik Wijaya"
+                  class="product-card-img"
+                  loading="lazy"
+                  width="300"
+                  height="400"
+                />
+                <div class="product-badges">
+                  <span class="badge badge-sale">-20%</span>
+                </div>
+                <div class="product-card-actions">
+                  <button
+                    class="card-action-btn"
+                    onclick="toggleWish(this, 'Kemeja Batik Wijaya')"
+                    aria-label="Wishlist"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </button>
+                  <a
+                    href="product.html"
+                    class="card-action-btn"
+                    aria-label="Lihat detail"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                </div>
+                <button
+                  class="product-quick-add"
+                  onclick="addCart('Kemeja Batik Wijaya', 'Rp 245.000')"
+                  aria-label="Tambah ke keranjang"
+                >
+                  + Keranjang
+                </button>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-cat">Batik Wanita</div>
+                <h3 class="product-card-name">
+                  <a
+                    href="product.html"
+                    style="color: inherit; text-decoration: none"
+                    >Kemeja Batik Wijaya</a
+                  >
+                </h3>
+                <div class="product-card-rating">
+                  <div class="stars" aria-label="4.6 bintang">
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rating-count">4.6 (74)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-main">Rp 245.000</span>
+                  <span class="price-original">Rp 310.000</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article
+              class="product-card"
+              data-cat="dress"
+              data-reveal
+              data-delay="3"
+            >
+              <div class="product-card-img-wrap">
+                <img
+                  src="assets/img/product_4.png"
+                  alt="Dress Batik Lestari"
+                  class="product-card-img"
+                  loading="lazy"
+                  width="300"
+                  height="400"
+                />
+                <div class="product-badges">
+                  <span class="badge badge-new">New</span>
+                </div>
+                <div class="product-card-actions">
+                  <button
+                    class="card-action-btn"
+                    onclick="toggleWish(this, 'Dress Batik Lestari')"
+                    aria-label="Wishlist"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </button>
+                  <a
+                    href="product.html"
+                    class="card-action-btn"
+                    aria-label="Lihat detail"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                </div>
+                <button
+                  class="product-quick-add"
+                  onclick="addCart('Dress Batik Lestari', 'Rp 275.000')"
+                  aria-label="Tambah ke keranjang"
+                >
+                  + Keranjang
+                </button>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-cat">Dress Batik</div>
+                <h3 class="product-card-name">
+                  <a
+                    href="product.html"
+                    style="color: inherit; text-decoration: none"
+                    >Dress Batik Lestari</a
+                  >
+                </h3>
+                <div class="product-card-rating">
+                  <div class="stars" aria-label="4.7 bintang">
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rating-count">4.7 (241)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-main">Rp 275.000</span>
+                  <span class="price-original">Rp 340.000</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="product-card" data-cat="pria" data-reveal>
+              <div class="product-card-img-wrap">
+                <img
+                  src="assets/img/cat_pria.png"
+                  alt="Batik Tulis Premium Pria"
+                  class="product-card-img"
+                  loading="lazy"
+                  width="300"
+                  height="400"
+                />
+                <div class="product-card-actions">
+                  <button
+                    class="card-action-btn"
+                    onclick="toggleWish(this, 'Batik Tulis Premium Pria')"
+                    aria-label="Wishlist"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </button>
+                  <a
+                    href="product.html"
+                    class="card-action-btn"
+                    aria-label="Lihat detail"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                </div>
+                <button
+                  class="product-quick-add"
+                  onclick="addCart('Batik Tulis Premium Pria', 'Rp 485.000')"
+                  aria-label="Tambah ke keranjang"
+                >
+                  + Keranjang
+                </button>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-cat">Batik Pria</div>
+                <h3 class="product-card-name">
+                  <a
+                    href="product.html"
+                    style="color: inherit; text-decoration: none"
+                    >Batik Tulis Premium Pria</a
+                  >
+                </h3>
+                <div class="product-card-rating">
+                  <div class="stars" aria-label="5 bintang">
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rating-count">5.0 (57)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-main">Rp 485.000</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article
+              class="product-card"
+              data-cat="couple"
+              data-reveal
+              data-delay="1"
+            >
+              <div class="product-card-img-wrap">
+                <img
+                  src="assets/img/cat_couple.png"
+                  alt="Set Couple Batik Harmoni"
+                  class="product-card-img"
+                  loading="lazy"
+                  width="300"
+                  height="400"
+                />
+                <div class="product-badges">
+                  <span class="badge badge-best">Couple</span>
+                </div>
+                <div class="product-card-actions">
+                  <button
+                    class="card-action-btn"
+                    onclick="toggleWish(this, 'Set Couple Batik Harmoni')"
+                    aria-label="Wishlist"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </button>
+                  <a
+                    href="product.html"
+                    class="card-action-btn"
+                    aria-label="Lihat detail"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                </div>
+                <button
+                  class="product-quick-add"
+                  onclick="addCart('Set Couple Batik Harmoni', 'Rp 620.000')"
+                  aria-label="Tambah ke keranjang"
+                >
+                  + Keranjang
+                </button>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-cat">Couple</div>
+                <h3 class="product-card-name">
+                  <a
+                    href="product.html"
+                    style="color: inherit; text-decoration: none"
+                    >Set Couple Batik Harmoni</a
+                  >
+                </h3>
+                <div class="product-card-rating">
+                  <div class="stars" aria-label="4.9 bintang">
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rating-count">4.9 (183)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-main">Rp 620.000</span>
+                  <span class="price-original">Rp 750.000</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article
+              class="product-card"
+              data-cat="wanita"
+              data-reveal
+              data-delay="2"
+            >
+              <div class="product-card-img-wrap">
+                <img
+                  src="assets/img/cat_wanita.png"
+                  alt="Kebaya Batik Modern"
+                  class="product-card-img"
+                  loading="lazy"
+                  width="300"
+                  height="400"
+                />
+                <div class="product-badges">
+                  <span class="badge badge-sale">-15%</span>
+                </div>
+                <div class="product-card-actions">
+                  <button
+                    class="card-action-btn"
+                    onclick="toggleWish(this, 'Kebaya Batik Modern')"
+                    aria-label="Wishlist"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </button>
+                  <a
+                    href="product.html"
+                    class="card-action-btn"
+                    aria-label="Lihat detail"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                </div>
+                <button
+                  class="product-quick-add"
+                  onclick="addCart('Kebaya Batik Modern', 'Rp 395.000')"
+                  aria-label="Tambah ke keranjang"
+                >
+                  + Keranjang
+                </button>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-cat">Batik Wanita</div>
+                <h3 class="product-card-name">
+                  <a
+                    href="product.html"
+                    style="color: inherit; text-decoration: none"
+                    >Kebaya Batik Modern</a
+                  >
+                </h3>
+                <div class="product-card-rating">
+                  <div class="stars" aria-label="4.8 bintang">
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rating-count">4.8 (302)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-main">Rp 395.000</span>
+                  <span class="price-original">Rp 465.000</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article
+              class="product-card"
+              data-cat="dress"
+              data-reveal
+              data-delay="3"
+            >
+              <div class="product-card-img-wrap">
+                <img
+                  src="assets/img/cat_dress.png"
+                  alt="Maxi Dress Batik Nusantara"
+                  class="product-card-img"
+                  loading="lazy"
+                  width="300"
+                  height="400"
+                />
+                <div class="product-badges">
+                  <span class="badge badge-new">New</span>
+                </div>
+                <div class="product-card-actions">
+                  <button
+                    class="card-action-btn"
+                    onclick="toggleWish(this, 'Maxi Dress Batik Nusantara')"
+                    aria-label="Wishlist"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                      />
+                    </svg>
+                  </button>
+                  <a
+                    href="product.html"
+                    class="card-action-btn"
+                    aria-label="Lihat detail"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                </div>
+                <button
+                  class="product-quick-add"
+                  onclick="addCart('Maxi Dress Batik Nusantara', 'Rp 320.000')"
+                  aria-label="Tambah ke keranjang"
+                >
+                  + Keranjang
+                </button>
+              </div>
+              <div class="product-card-info">
+                <div class="product-card-cat">Dress Batik</div>
+                <h3 class="product-card-name">
+                  <a
+                    href="product.html"
+                    style="color: inherit; text-decoration: none"
+                    >Maxi Dress Batik Nusantara</a
+                  >
+                </h3>
+                <div class="product-card-rating">
+                  <div class="stars" aria-label="4.5 bintang">
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 24 24">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
+                    </svg>
+                  </div>
+                  <span class="rating-count">4.5 (89)</span>
+                </div>
+                <div class="product-card-price">
+                  <span class="price-main">Rp 320.000</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- /products-grid -->
+
+          <div class="products-loadmore" data-reveal>
+            <a href="shop.html" class="btn btn-outline" id="load-more-btn"
+              >Lihat Semua Produk</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== ABOUT STRIP ========== -->
+      <style>
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
+          text-align: center;
+        }
+        @media (max-width: 768px) {
+          .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 480px) {
+          .stats-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style>
+      <section
+        id="about-strip"
+        style="background: #fff; padding: 48px 0; border-top: 1px solid #f5f5f5"
+      >
+        <div class="container">
+          <div class="stats-grid">
+            <div data-reveal>
+              <div
+                style="
+                  font-size: 3rem;
+                  font-weight: 800;
+                  color: #e8725a;
+                  font-family: &quot;Poppins&quot;, sans-serif;
+                "
+              >
+                5.000+
+              </div>
+              <div style="font-size: 1.25rem; color: #737373; margin-top: 4px">
+                Pelanggan Puas
+              </div>
+            </div>
+            <div data-reveal data-delay="1">
+              <div
+                style="
+                  font-size: 3rem;
+                  font-weight: 800;
+                  color: #e8725a;
+                  font-family: &quot;Poppins&quot;, sans-serif;
+                "
+              >
+                120+
+              </div>
+              <div style="font-size: 1.25rem; color: #737373; margin-top: 4px">
+                Produk Pilihan
+              </div>
+            </div>
+            <div data-reveal data-delay="2">
+              <div
+                style="
+                  font-size: 3rem;
+                  font-weight: 800;
+                  color: #e8725a;
+                  font-family: &quot;Poppins&quot;, sans-serif;
+                "
+              >
+                4.9/5
+              </div>
+              <div style="font-size: 1.25rem; color: #737373; margin-top: 4px">
+                Rating Rata-rata
+              </div>
+            </div>
+            <div data-reveal data-delay="3">
+              <div
+                style="
+                  font-size: 3rem;
+                  font-weight: 800;
+                  color: #e8725a;
+                  font-family: &quot;Poppins&quot;, sans-serif;
+                "
+              >
+                50+
+              </div>
+              <div style="font-size: 1.25rem; color: #737373; margin-top: 4px">
+                Motif Eksklusif
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== AFFILIATE BANNER ========== -->
+      <section id="affiliate-banner" aria-label="Program affiliasi Kanasari">
+        <div class="container">
+          <div class="affiliate-banner-inner">
+            <div data-reveal>
+              <div class="affiliate-banner-tag">PROGRAM AFFILIASI</div>
+              <h2 class="affiliate-banner-title">
+                Gabung Affiliate Kanasari<br />
+                Dapatkan Komisi Hingga
+                <span
+                  style="text-decoration: underline; text-underline-offset: 4px"
+                  >20%</span
+                >
+              </h2>
+              <p class="affiliate-banner-desc">
+                Bagikan link produk Kanasari dan dapatkan komisi untuk setiap
+                penjualan melalui dashboard afiliasi yang mudah dipantau.
+              </p>
+              <a
+                href="affiliate-login.html"
+                class="btn btn-white"
+                id="aff-banner-btn"
+              >
+                Daftar Sekarang
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+
+              <div class="affiliate-banner-steps" data-reveal data-delay="2">
+                <div class="affiliate-step-item">
+                  <div class="step-num">1</div>
+                  <div>
+                    <div class="step-body-title">Daftar Gratis</div>
+                    <div class="step-body-desc">Tanpa biaya pendaftaran</div>
+                  </div>
+                </div>
+                <div class="affiliate-step-item">
+                  <div class="step-num">2</div>
+                  <div>
+                    <div class="step-body-title">Bagikan Link</div>
+                    <div class="step-body-desc">
+                      Bagikan link ke audiens Anda
+                    </div>
+                  </div>
+                </div>
+                <div class="affiliate-step-item">
+                  <div class="step-num">3</div>
+                  <div>
+                    <div class="step-body-title">Dapat Komisi</div>
+                    <div class="step-body-desc">
+                      Komisi cair otomatis langsung
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="affiliate-banner-image" data-reveal data-delay="1">
+              <img
+                src="assets/img/affiliate_illus.png"
+                alt="Ilustrasi program affiliasi"
+                loading="lazy"
+                width="380"
+                height="240"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== NEWSLETTER ========== -->
+      <section id="newsletter" aria-label="Newsletter">
+        <div class="container">
+          <div class="newsletter-inner">
+            <div class="newsletter-content" data-reveal>
+              <h2 class="newsletter-title">Dapatkan Penawaran Eksklusif!</h2>
+              <p class="newsletter-desc">
+                Gabung channel WhatsApp Kanasari untuk melihat koleksi baru,
+                promo terbatas, dan kabar stok paling cepat.
+              </p>
+            </div>
+            <div
+              class="newsletter-form"
+              id="nl-form"
+              data-reveal
+              data-delay="2"
+            >
+              <a
+                href="https://wa.me/6281234567890?text=Saya%20ingin%20gabung%20channel%20WhatsApp%20Kanasari"
+                target="_blank"
+                rel="noopener"
+                class="newsletter-btn whatsapp-channel-btn"
+                id="nl-btn"
+              >
+                Gabung Channel WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==============================
+     FOOTER
+     ============================== -->
+    <footer id="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand -->
+          <div>
+            <div class="footer-logo-wrap">
+              <img
+                src="assets/img/logo.png"
+                alt="Kanasari"
+                onerror="this.style.display = 'none'"
+              />
+              <span class="footer-logo-name">KANASARI</span>
+            </div>
+            <p class="footer-desc">
+              Kanasari Store - toko batik fashion modern Indonesia yang
+              menghadirkan koleksi premium untuk setiap momen spesialmu.
+            </p>
+            <nav class="footer-socials" aria-label="Media sosial">
+              <a
+                href="https://www.tiktok.com/@kanasaristyle24"
+                class="footer-social"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
+              </a>
+              <a href="#" class="footer-social" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              <a href="#" class="footer-social" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                  />
+                </svg>
+              </a>
+            </nav>
+          </div>
+
+          <!-- Belanja -->
+          <nav aria-label="Belanja">
+            <h3 class="footer-col-title">Belanja</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#" class="footer-link" id="fl-new">Semua Produk</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-pria">Batik Pria</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-wanita">Batik Wanita</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-dress">Dress Batik</a>
+              </li>
+              <li><a href="#" class="footer-link" id="fl-couple">Couple</a></li>
+              <li>
+                <a href="#" class="footer-link" id="fl-sale">Promo & Sale</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Informasi -->
+          <nav aria-label="Informasi">
+            <h3 class="footer-col-title">Informasi</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#" class="footer-link" id="fl-tentang">Tentang Kami</a>
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-cara-beli"
+                  >Cara Belanja</a
+                >
+              </li>
+              <li>
+                <a href="affiliate-login.html" class="footer-link" id="fl-aff"
+                  >Program Affiliasi</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-hadiah"
+                  >Hadiah Terbaru</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-ulasan"
+                  >Ulasan Pelanggan</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-blog">Blog Batik</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Bantuan -->
+          <nav aria-label="Bantuan">
+            <h3 class="footer-col-title">Bantuan</h3>
+            <ul class="footer-links">
+              <li>
+                <a href="account/index.html" class="footer-link" id="fl-akun"
+                  >Akun Saya</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-tracking"
+                  >Lacak Pesanan</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-retur"
+                  >Kebijakan Retur</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-ukuran"
+                  >Panduan Ukuran</a
+                >
+              </li>
+              <li>
+                <a href="#" class="footer-link" id="fl-privasi"
+                  >Kebijakan Privasi</a
+                >
+              </li>
+              <li><a href="#" class="footer-link" id="fl-faq">FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            Copyright 2026 Kanasari Store. Dibuat dengan di Indonesia.
+          </p>
+          <div class="footer-payments" aria-label="Metode pembayaran">
+            <span class="payment-pill">XENDIT</span>
+            <span class="payment-pill">QRIS</span>
+            <span class="payment-pill">GoPay</span>
+            <span class="payment-pill">OVO</span>
+            <span class="payment-pill">DANA</span>
+            <span class="payment-pill">VA BANK</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==============================
+     CART SIDEBAR
+     ============================== -->
+    <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+    <aside
+      class="cart-sidebar"
+      id="cart-sidebar"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Keranjang belanja"
+    >
+      <div class="cart-header">
+        <h2 class="cart-title">Keranjang Belanja</h2>
+        <button
+          class="cart-close"
+          id="cart-close-btn"
+          aria-label="Tutup keranjang"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="cart-body" id="cart-body">
+        <!-- Cart Item 1 -->
+        <div class="cart-item" id="ci-1">
+          <img
+            src="assets/img/product_1.png"
+            alt="Kemeja Batik Arjuna"
+            class="cart-item-img"
+            loading="lazy"
+            width="76"
+            height="95"
+          />
+          <div class="cart-item-info">
+            <div class="cart-item-name">Kemeja Batik Arjuna</div>
+            <div class="cart-item-variant">Ukuran: M - Warna: Coklat</div>
+            <div class="cart-item-price">Rp 349.000</div>
+            <div class="cart-item-qty">
+              <button
+                class="qty-btn"
+                onclick="chQty(-1, 1)"
+                aria-label="Kurang"
+              >
+                -
+              </button>
+              <span class="qty-val" id="qv-1">1</span>
+              <button class="qty-btn" onclick="chQty(1, 1)" aria-label="Tambah">
+                +
+              </button>
+            </div>
+          </div>
+          <button class="cart-item-remove" onclick="rmCart(1)" aria-label="Hapus">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="3 6 5 6 21 6" />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Cart Item 2 -->
+        <div class="cart-item" id="ci-2">
+          <img
+            src="assets/img/product_2.png"
+            alt="Blus Batik Srikandi"
+            class="cart-item-img"
+            loading="lazy"
+            width="76"
+            height="95"
+          />
+          <div class="cart-item-info">
+            <div class="cart-item-name">Blus Batik Srikandi</div>
+            <div class="cart-item-variant">Ukuran: S - Warna: Coral</div>
+            <div class="cart-item-price">Rp 235.000</div>
+            <div class="cart-item-qty">
+              <button
+                class="qty-btn"
+                onclick="chQty(-1, 2)"
+                aria-label="Kurang"
+              >
+                -
+              </button>
+              <span class="qty-val" id="qv-2">2</span>
+              <button class="qty-btn" onclick="chQty(1, 2)" aria-label="Tambah">
+                +
+              </button>
+            </div>
+          </div>
+          <button class="cart-item-remove" onclick="rmCart(2)" aria-label="Hapus">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="3 6 5 6 21 6" />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Cart Item 3 -->
+        <div class="cart-item" id="ci-3">
+          <img
+            src="assets/img/product_4.png"
+            alt="Dress Batik Lestari"
+            class="cart-item-img"
+            loading="lazy"
+            width="76"
+            height="95"
+          />
+          <div class="cart-item-info">
+            <div class="cart-item-name">Dress Batik Lestari</div>
+            <div class="cart-item-variant">Ukuran: M - Warna: Navy</div>
+            <div class="cart-item-price">Rp 275.000</div>
+            <div class="cart-item-qty">
+              <button
+                class="qty-btn"
+                onclick="chQty(-1, 3)"
+                aria-label="Kurang"
+              >
+                -
+              </button>
+              <span class="qty-val" id="qv-3">1</span>
+              <button class="qty-btn" onclick="chQty(1, 3)" aria-label="Tambah">
+                +
+              </button>
+            </div>
+          </div>
+          <button class="cart-item-remove" onclick="rmCart(3)" aria-label="Hapus">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="3 6 5 6 21 6" />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- /cart-body -->
+
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span class="cart-subtotal-label">Subtotal</span>
+          <span class="cart-subtotal-val" id="cart-total">Rp 1.094.000</span>
+        </div>
+        <p class="cart-note">Ongkos kirim & diskon dihitung saat checkout.</p>
+        <button
+          class="cart-checkout-btn"
+          id="cart-checkout-btn"
+          onclick="goToCheckout()"
+        >
+          Lanjut ke Checkout ->
+        </button>
+      </div>
+    </aside>
+
+    <!-- ==============================
+     TOAST
+     ============================== -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <div class="toast-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </div>
+      <span id="toast-msg">Berhasil ditambahkan!</span>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+

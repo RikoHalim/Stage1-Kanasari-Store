@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Kanasari Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cormorant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=desktop-plus10a" />
+  <style>
+    body { margin: 0; padding: 0; overflow-x: hidden; }
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh; min-height: 100dvh;
+    }
+    .split-image {
+      background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+      position: relative;
+    }
+    .split-image::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    }
+    .split-image-text {
+      position: absolute;
+      bottom: 60px;
+      left: 60px;
+      right: 60px;
+      color: white;
+      z-index: 2;
+    }
+    .split-image-text h2 {
+      font-size: 3rem;
+      font-family: var(--font-heading);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .split-image-text p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+    .split-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3.75rem 5rem;
+      background: var(--white);
+    }
+    .auth-logo { height: 100px; margin-bottom: 40px; }
+    .auth-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 12px; color: var(--neutral-800); }
+    .auth-desc { font-size: 1.25rem; color: var(--neutral-500); margin-bottom: 48px; }
+    
+    .form-group { margin-bottom: 24px; }
+    .form-label { display: block; font-size: 1.125rem; font-weight: 600; margin-bottom: 10px; color: var(--neutral-700); }
+    .form-input { 
+      width: 100%; 
+      padding: 16px 20px; 
+      border: 1.5px solid var(--neutral-200); 
+      border-radius: var(--r-md); 
+      font-family: var(--font); 
+      font-size: 1.125rem; 
+      outline: none; 
+      transition: border-color 0.2s; 
+    }
+    .form-input:focus { border-color: var(--primary); }
+    
+    .auth-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      font-size: 1rem;
+    }
+    .auth-options label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    .auth-options a { color: var(--primary); font-weight: 500; }
+    
+    .auth-btn { 
+      width: 100%; 
+      padding: 18px; 
+      font-size: 1.25rem; 
+      border-radius: var(--r-full); 
+      background: var(--primary); 
+      color: var(--white); 
+      font-weight: 600; 
+      cursor: pointer; 
+      border: none; 
+      font-family: var(--font); 
+      letter-spacing: 1px; 
+      transition: 0.2s; 
+    }
+    .auth-btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    
+    .auth-links { margin-top: 32px; font-size: 1.125rem; color: var(--neutral-500); text-align: center; }
+    .auth-links a { color: var(--primary); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .split-form { padding: 40px 60px; }
+    }
+        @media (max-width: 768px) {
+      body { grid-template-columns: 1fr; }
+      .split-layout { grid-template-columns: 1fr; min-height: 100svh; }
+      .split-image { display: none; }
+      .split-form { width: 100%; max-width: 100%; min-height: 100svh; box-sizing: border-box; padding: clamp(1.25rem, 6vw, 2rem) clamp(0.875rem, 5vw, 2rem); }
+    }
+  </style>
+</head>
+<body>
+  <div class="split-layout">
+    <div class="split-image">
+      <div class="split-image-text">
+        <h2>Elegansi dalam Setiap Sentuhan</h2>
+        <p>Bergabunglah dengan ribuan wanita yang telah menemukan gaya uniknya bersama Kanasari Store.</p>
+      </div>
+    </div>
+    <div class="split-form">
+      <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--neutral-500); text-decoration: none; font-size: 1rem; font-weight: 500; margin-bottom: 32px; transition: color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--neutral-500)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Kembali ke Beranda
+      </a>
+      <a href="index.html"><img src="assets/img/logo.png" alt="Kanasari" class="auth-logo" /></a>
+      <h1 class="auth-title">Selamat Datang Kembali</h1>
+      <p class="auth-desc">Masuk ke akun Kanasari Anda untuk melanjutkan belanja.</p>
+      
+      <!-- Quick Demo Access -->
+      <div style="background: var(--neutral-50); padding: 16px; border-radius: var(--r-md); border: 1px dashed var(--neutral-300); margin-bottom: 24px;">
+        <div style="font-size: 0.875rem; color: var(--neutral-500); margin-bottom: 12px; font-weight: 600; text-transform: uppercase;">Akses Cepat (Demo):</div>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" onclick="document.getElementById('loginEmail').value='admin@kanasari.com'; document.getElementById('loginPassword').value='password';" style="flex:1; padding: 10px; font-size: 0.875rem; font-weight: 600; border-radius: var(--r-md); background: white; border: 1px solid var(--neutral-300); cursor: pointer; color: var(--neutral-700);">Admin</button>
+          <button type="button" onclick="document.getElementById('loginEmail').value='affiliate@kanasari.com'; document.getElementById('loginPassword').value='password';" style="flex:1; padding: 10px; font-size: 0.875rem; font-weight: 600; border-radius: var(--r-md); background: white; border: 1px solid var(--neutral-300); cursor: pointer; color: var(--neutral-700);">Affiliate</button>
+          <button type="button" onclick="document.getElementById('loginEmail').value='customer@kanasari.com'; document.getElementById('loginPassword').value='password';" style="flex:1; padding: 10px; font-size: 0.875rem; font-weight: 600; border-radius: var(--r-md); background: white; border: 1px solid var(--neutral-300); cursor: pointer; color: var(--neutral-700);">Customer</button>
+        </div>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" id="loginEmail" placeholder="nama@email.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" id="loginPassword" placeholder="" required />
+        </div>
+        
+        <div class="auth-options">
+          <label><input type="checkbox" /> Ingat saya</label>
+          <a href="#">Lupa password?</a>
+        </div>
+
+        <button type="submit" class="auth-btn">MASUK SEKARANG</button>
+      </form>
+      
+      <div class="auth-links">
+        Belum punya akun? <a href="register.html">Daftar di sini</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      
+      const role = email.includes('admin') ? 'admin' : (email.includes('affiliate') ? 'affiliate' : 'customer');
+      
+      // Simulasi Login Auth
+      sessionStorage.setItem('kanasari_session_active', '1');
+      localStorage.setItem('kanasari_login_at', String(Date.now()));
+      localStorage.setItem('kanasari_user', JSON.stringify({
+        name: email.split('@')[0],
+        email: email,
+        role: role
+      }));
+      
+      const params = new URLSearchParams(window.location.search);
+      const returnUrl = params.get('return') || localStorage.getItem('kanasari_return_after_login');
+      localStorage.removeItem('kanasari_return_after_login');
+
+      if (role === 'admin') {
+        window.location.href = 'admin/index.html';
+      } else if (role === 'affiliate') {
+        window.location.href = 'affiliate/index.html';
+      } else {
+        window.location.href = returnUrl || 'index.html';
+      }
+    });
+  </script>
+
+<a class="whatsapp-float" href="https://wa.me/6281234567890?text=Halo%20Kanasari%20Store%2C%20saya%20ingin%20bertanya%20tentang%20produk." target="_blank" rel="noopener" aria-label="Hubungi Kanasari Store via WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+    <path d="M16.04 3.2A12.66 12.66 0 0 0 5.1 22.24L3.6 28.8l6.72-1.42A12.65 12.65 0 1 0 16.04 3.2Zm0 2.34a10.31 10.31 0 0 1 8.78 15.72 10.27 10.27 0 0 1-12.98 3.62l-.44-.22-4.1.86.9-4-.28-.46A10.31 10.31 0 0 1 16.04 5.54Zm-4.1 4.58c-.25 0-.66.1-1 .47-.34.38-1.32 1.3-1.32 3.16s1.35 3.66 1.54 3.91c.19.25 2.62 4.2 6.47 5.72 3.2 1.26 3.85 1.01 4.55.95.7-.07 2.25-.92 2.57-1.82.32-.89.32-1.66.22-1.82-.1-.16-.35-.25-.73-.45-.38-.19-2.25-1.11-2.6-1.24-.35-.13-.6-.19-.86.19-.25.38-.98 1.24-1.2 1.49-.22.25-.44.29-.82.1-.38-.19-1.6-.59-3.05-1.88-1.13-1-1.89-2.24-2.11-2.62-.22-.38-.02-.58.17-.77.17-.17.38-.45.57-.67.19-.22.25-.38.38-.64.13-.25.06-.48-.03-.67-.1-.19-.86-2.08-1.18-2.85-.31-.75-.63-.65-.86-.66h-.73Z" />
+  </svg>
+</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

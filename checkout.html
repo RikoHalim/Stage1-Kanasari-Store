@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Kanasari Store</title>
+  <meta name="description" content="Selesaikan pembelian batik Anda di Kanasari Store. Pengiriman aman ke seluruh Indonesia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="stylesheet" href="assets/css/style.css?v=desktop-plus10a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>K</text></svg>" />
+
+  <style>
+    body { font-size: 1.6375rem; line-height: 1.6; }
+
+    .checkout-page { background: var(--neutral-50); min-height: 100vh; padding-bottom: 80px; }
+
+    /* Steps */
+    .steps-bar { background: var(--white); border-bottom: 1px solid var(--neutral-200); padding: 20px 0; }
+    .steps-inner { max-width: 860px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: center; }
+    .step { display: flex; align-items: center; gap: 10px; flex: 1; justify-content: center; position: relative; }
+    .step:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 30%; height: 2px; background: var(--neutral-200); z-index: 0; }
+    .step.done:not(:last-child)::after { background: var(--primary); }
+    .step-num { width: 2.1rem; height: 2.1rem; border-radius: 50%; border: 2px solid var(--neutral-300); background: var(--white); color: var(--neutral-400); font-size: 1.2188rem; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 1; transition: all 0.3s ease; }
+    .step.done .step-num { background: var(--primary); border-color: var(--primary); color: var(--white); }
+    .step.active .step-num { background: var(--primary); border-color: var(--primary); color: var(--white); box-shadow: 0 0 0 4px rgba(232,114,90,0.2); }
+    .step-label { font-size: 1.125rem; font-weight: 500; color: var(--neutral-400); white-space: nowrap; position: relative; z-index: 1; background: var(--white); padding: 0 8px; }
+    .step.done .step-label { color: var(--primary); }
+    .step.active .step-label { color: var(--primary); font-weight: 600; }
+
+    /* Header */
+    .checkout-header { background: var(--white); border-bottom: 1px solid var(--neutral-100); padding: 32px 0 28px; }
+    .checkout-header-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .checkout-header h1 { font-size: 2.4375rem; font-weight: 700; color: var(--neutral-900); letter-spacing: -0.5px; }
+    .checkout-header p { font-size: 1.2188rem; color: var(--neutral-500); margin-top: 4px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 1.2188rem; color: var(--neutral-500); margin-bottom: 20px; transition: color 0.2s; text-decoration: none; }
+    .back-link:hover { color: var(--primary); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    /* Layout */
+    .checkout-body { max-width: 1200px; margin: 40px auto 0; padding: 0 32px; display: grid; grid-template-columns: 60fr 40fr; gap: 32px; align-items: start; }
+
+    /* Cards */
+    .card { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-xl); padding: 28px 32px; margin-bottom: 24px; box-shadow: var(--shadow-sm); }
+    .card:last-child { margin-bottom: 0; }
+    .card-title { font-size: 1.5rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--neutral-100); display: flex; align-items: center; gap: 10px; }
+    .card-title-icon { width: 32px; height: 32px; background: var(--primary-pale); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0; }
+    .card-title-icon svg { width: 16px; height: 16px; }
+
+    /* Form */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { font-size: 1.125rem; font-weight: 600; color: var(--neutral-700); text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-group input, .form-group select, .form-group textarea { border: 1.5px solid var(--neutral-200); border-radius: var(--r-md); padding: 11px 14px; font-size: 1.3125rem; font-family: 'Poppins', sans-serif; color: var(--neutral-800); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(232,114,90,0.12); }
+    .form-group input::placeholder { color: var(--neutral-400); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group select { cursor: pointer; }
+    .checkout-login-panel { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 16px; margin: -4px 0 18px; border: 1px solid rgba(232,114,90,0.25); border-radius: var(--r-lg); background: var(--primary-pale); }
+    .checkout-login-panel strong { display: block; font-size: 1.125rem; color: var(--neutral-900); }
+    .checkout-login-panel span { display: block; font-size: 1rem; color: var(--neutral-600); margin-top: 2px; }
+    .checkout-login-btn { border: none; border-radius: var(--r-md); background: var(--neutral-900); color: var(--white); padding: 10px 14px; font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+
+    /* Courier */
+    .courier-list { display: flex; flex-direction: column; gap: 12px; }
+    .courier-card { border: 1.5px solid var(--neutral-200); border-radius: var(--r-lg); padding: 16px 18px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.2s ease; position: relative; background: var(--white); }
+    .courier-card:hover { border-color: var(--primary-light); background: var(--primary-pale); }
+    .courier-card.selected { border-color: var(--primary); background: var(--primary-pale); box-shadow: 0 0 0 3px rgba(232,114,90,0.1); }
+    .courier-card input[type="radio"] { display: none; }
+    .radio-dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--neutral-300); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .courier-card.selected .radio-dot { border-color: var(--primary); background: var(--primary); }
+    .courier-card.selected .radio-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: white; display: block; }
+    .courier-logo { width: 52px; height: 32px; background: var(--neutral-100); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 0.9375rem; font-weight: 800; color: var(--neutral-600); letter-spacing: 0.5px; flex-shrink: 0; }
+    .courier-info { flex: 1; }
+    .courier-name { font-size: 1.3125rem; font-weight: 600; color: var(--neutral-800); }
+    .courier-service { font-size: 1.125rem; color: var(--neutral-500); margin-top: 1px; }
+    .courier-price { font-size: 1.3125rem; font-weight: 700; color: var(--primary); text-align: right; }
+    .courier-eta { font-size: 1.0312rem; color: var(--neutral-500); text-align: right; margin-top: 1px; }
+
+    /* Payment */
+    .payment-section-label { font-size: 1.0312rem; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.8px; margin: 16px 0 10px; }
+    .payment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .payment-card { border: 1.5px solid var(--neutral-200); border-radius: var(--r-lg); padding: 14px 16px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.2s ease; background: var(--white); }
+    .payment-card:hover { border-color: var(--primary-light); background: var(--primary-pale); }
+    .payment-icon { width: 40px; height: 26px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.8438rem; font-weight: 800; letter-spacing: 0.3px; flex-shrink: 0; }
+    .payment-icon.bca  { background: #003087; color: white; }
+    .payment-icon.mdr  { background: #f4b400; color: #003087; }
+    .payment-icon.qris { background: #e8725a; color: white; }
+    .payment-icon.gopay{ background: #00aed6; color: white; }
+    .payment-icon.ovo  { background: #4c3494; color: white; }
+    .payment-label { font-size: 1.2188rem; font-weight: 600; color: var(--neutral-800); }
+    .payment-sub { font-size: 1.0312rem; color: var(--neutral-500); }
+
+    /* Summary */
+    .order-summary-wrap { position: sticky; top: 24px; }
+    .summary-card { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow-md); }
+    .summary-header { background: linear-gradient(135deg, #1a1a1a 0%, #2d1a14 100%); padding: 22px 28px; color: var(--white); }
+    .summary-header h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.3px; }
+    .summary-header p { font-size: 1.125rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+    .summary-body { padding: 24px 28px; }
+    .summary-items { display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px; }
+    .summary-item { display: flex; gap: 12px; align-items: center; }
+    .item-img { width: 54px; height: 54px; border-radius: var(--r-md); object-fit: cover; flex-shrink: 0; border: 1px solid var(--neutral-200); background: var(--neutral-100); }
+    .item-img-placeholder { width: 54px; height: 54px; border-radius: var(--r-md); flex-shrink: 0; border: 1px solid var(--neutral-200); background: linear-gradient(135deg, var(--neutral-100), var(--neutral-200)); display: none; align-items: center; justify-content: center; font-size: 1.6875rem; }
+    .item-details { flex: 1; min-width: 0; }
+    .item-name { font-size: 1.2188rem; font-weight: 600; color: var(--neutral-800); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .item-variant { font-size: 1.0312rem; color: var(--neutral-500); margin-top: 1px; }
+    .item-qty-price { text-align: right; flex-shrink: 0; }
+    .item-price { font-size: 1.2188rem; font-weight: 700; color: var(--neutral-800); }
+    .item-qty { font-size: 1.0312rem; color: var(--neutral-500); margin-top: 1px; }
+    .summary-divider { border: none; border-top: 1px dashed var(--neutral-200); margin: 18px 0; }
+    .price-row { display: flex; justify-content: space-between; align-items: center; font-size: 1.2188rem; margin-bottom: 10px; color: var(--neutral-600); }
+    .price-row.total { font-size: 1.5rem; font-weight: 700; color: var(--neutral-900); margin-top: 6px; padding-top: 14px; border-top: 2px solid var(--neutral-900); }
+    .price-row.total .amount { color: var(--primary); font-size: 1.6875rem; }
+    .price-row .label { font-weight: 500; }
+    .price-row .amount { font-weight: 600; }
+    .price-row.discount .amount { color: var(--success); }
+    .coupon-row { display: flex; gap: 8px; margin-bottom: 18px; }
+    .coupon-row input { flex: 1; border: 1.5px solid var(--neutral-200); border-radius: var(--r-md); padding: 10px 12px; font-size: 1.2188rem; font-family: 'Poppins', sans-serif; outline: none; transition: border-color 0.2s; }
+    .coupon-row input:focus { border-color: var(--primary); }
+    .coupon-row input::placeholder { color: var(--neutral-400); }
+    .coupon-btn { background: var(--neutral-900); color: var(--white); border: none; border-radius: var(--r-md); padding: 10px 16px; font-size: 1.125rem; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+    .coupon-btn:hover { background: var(--primary); }
+    .pay-btn { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); border: none; border-radius: var(--r-lg); padding: 16px; font-size: 1.4062rem; font-weight: 700; font-family: 'Poppins', sans-serif; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.25s ease; box-shadow: var(--shadow-primary); letter-spacing: 0.3px; }
+    .pay-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,114,90,0.4); }
+    .pay-btn:active { transform: translateY(0); }
+    .pay-btn svg { width: 18px; height: 18px; }
+    .secure-note { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 14px; font-size: 1.0312rem; color: var(--neutral-500); }
+    .secure-note svg { width: 13px; height: 13px; }
+    .secure-badges { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; }
+    .secure-badge { background: var(--neutral-50); border: 1px solid var(--neutral-200); border-radius: var(--r-sm); padding: 4px 8px; font-size: 0.9375rem; font-weight: 600; color: var(--neutral-500); letter-spacing: 0.3px; }
+
+    @media (max-width: 900px) {
+      .checkout-body { grid-template-columns: 1fr; padding: 0 16px; }
+      .order-summary-wrap { position: static; }
+      .form-grid { grid-template-columns: 1fr; }
+      .payment-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) { .step-label { display: none; } }
+    @media (max-width: 768px) {
+      body { font-size: 1.0938rem !important; }
+      .checkout-page { padding-bottom: 48px; }
+      .steps-bar { padding: 14px 0; }
+      .steps-inner { padding: 0 16px; }
+      .step:not(:last-child)::after { width: 56%; }
+      .checkout-header { padding: 24px 0 20px; }
+      .checkout-header-inner { padding: 0 16px; }
+      .checkout-header h1 { font-size: 1.875rem; line-height: 1.25; }
+      .checkout-header p, .back-link { font-size: 1.0125rem; }
+      .checkout-body { margin-top: 24px; padding: 0 16px; gap: 20px; }
+      .card { padding: 20px 16px; border-radius: var(--r-lg); margin-bottom: 18px; }
+      .card-title { font-size: 1.325rem; gap: 8px; }
+      .form-grid, .payment-grid { grid-template-columns: 1fr; }
+      .form-group input, .form-group select, .form-group textarea { font-size: 1.0938rem; min-width: 0; }
+      .courier-card, .payment-card { align-items: flex-start; padding: 14px; }
+      .payment-card { width: 100%; box-sizing: border-box; justify-content: flex-start; gap: 12px; }
+      .payment-card > div:last-child { flex: 1; min-width: 0; }
+      .payment-icon { width: 42px; height: 28px; }
+      .checkout-login-panel { flex-direction: column; align-items: stretch; }
+      .checkout-login-btn { width: 100%; }
+      .courier-info, .payment-label { min-width: 0; }
+      .courier-card { flex-wrap: wrap; }
+      .courier-price, .courier-eta { text-align: left; width: 100%; padding-left: 34px; }
+      .summary-header, .summary-body { padding-left: 16px; padding-right: 16px; }
+      .summary-item { align-items: flex-start; flex-wrap: wrap; }
+      .item-name { white-space: normal; line-height: 1.35; }
+      .coupon-row { flex-direction: column; }
+      .coupon-btn, .pay-btn { width: 100%; }
+      .secure-badges { flex-wrap: wrap; }
+    }
+    @media (max-width: 420px) {
+      .step-num { width: 30px; height: 30px; font-size: 1.0125rem; }
+      .summary-item { gap: 10px; }
+      .item-img, .item-img-placeholder { width: 48px; height: 48px; }
+      .item-qty-price { flex: 0 0 100%; width: auto; text-align: left; padding-left: 58px; box-sizing: border-box; }
+    }
+  
+    /* Final mobile checkout pass */
+    @media (max-width: 768px) {
+      body { font-size: 1.05rem !important; }
+      .checkout-header h1 { font-size: clamp(1.75rem, 7vw, 2.1rem) !important; }
+      .checkout-header p, .back-link, .form-group label, .courier-service, .payment-sub, .secure-note, .secure-badge { font-size: 0.98rem !important; }
+      .card-title, .summary-header h2 { font-size: 1.28rem !important; }
+      .form-group input, .form-group select, .form-group textarea, .coupon-row input { font-size: 1.02rem !important; }
+      .courier-name, .courier-price, .payment-label, .item-name, .item-price, .price-row { font-size: 1.05rem !important; }
+      .courier-eta, .item-variant, .item-qty { font-size: 0.92rem !important; }
+      .price-row.total { font-size: 1.2rem !important; }
+      .price-row.total .amount { font-size: 1.3rem !important; }
+      .coupon-btn, .pay-btn { font-size: 1.05rem !important; }
+      .step-num { font-size: 0.95rem !important; }
+      .summary-item { min-width: 0; }
+    }
+    /* Fold / short viewport guard */
+    @media (max-width: 360px) {
+      html, body, .checkout-page { width: 100vw !important; max-width: 100vw !important; overflow-x: hidden !important; }
+      .checkout-body { width: 100vw !important; max-width: 100vw !important; padding-left: 8px !important; padding-right: 8px !important; margin-left: 0 !important; margin-right: 0 !important; box-sizing: border-box !important; }
+      .checkout-left, .checkout-right, .card, .summary-card, .form-grid, .form-group { width: 100% !important; min-width: 0 !important; max-width: 100% !important; box-sizing: border-box !important; }
+      .form-group input, .form-group select, .form-group textarea { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+      .card { padding-left: 12px !important; padding-right: 12px !important; }
+    }
+    @media (min-width: 901px) and (max-height: 900px) {
+      .order-summary-wrap { position: static !important; }
+    }
+    /* Compact mobile payment layout */
+    @media (max-width: 768px) {
+      .payment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+      }
+      .payment-card {
+        min-height: 88px;
+        padding: 12px 8px !important;
+        flex-direction: column;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center;
+        gap: 7px !important;
+      }
+      .payment-card > div:last-child {
+        flex: 0 1 auto !important;
+        width: 100%;
+        min-width: 0;
+      }
+      .payment-icon {
+        width: 46px !important;
+        height: 30px !important;
+      }
+      .payment-label {
+        font-size: 0.98rem !important;
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+      }
+      .payment-sub {
+        font-size: 0.82rem !important;
+        line-height: 1.2;
+      }
+    }
+    @media (max-width: 320px) {
+      .payment-grid { grid-template-columns: 1fr !important; }
+      .payment-card { min-height: 76px; }
+    }
+  
+    /* Desktop compact pass */
+    @media (min-width: 901px) {
+      body { font-size: 1rem; line-height: 1.5; }
+      .checkout-page { padding-bottom: 56px; }
+      .steps-bar { padding: 14px 0; }
+      .steps-inner { max-width: 760px; }
+      .step-num { width: 1.75rem; height: 1.75rem; font-size: 0.92rem; }
+      .step-label { font-size: 0.9rem; }
+      .checkout-header { padding: 22px 0 20px; }
+      .checkout-header-inner { max-width: 1060px; padding: 0 28px; }
+      .checkout-header h1 { font-size: 1.9rem; }
+      .checkout-header p, .back-link { font-size: 0.95rem; }
+      .back-link { margin-bottom: 14px; }
+      .checkout-body { max-width: 1060px; margin-top: 28px; padding: 0 28px; grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.85fr); gap: 24px; }
+      .card { padding: 22px 24px; margin-bottom: 18px; border-radius: 12px; }
+      .card-title { font-size: 1.18rem; margin-bottom: 16px; padding-bottom: 10px; }
+      .card-title-icon { width: 28px; height: 28px; }
+      .form-grid { gap: 12px; }
+      .form-group { gap: 5px; }
+      .form-group label { font-size: 0.82rem; }
+      .form-group input, .form-group select, .form-group textarea { padding: 9px 12px; font-size: 0.95rem; }
+      .checkout-login-panel { padding: 12px 14px; margin-bottom: 14px; }
+      .checkout-login-panel strong { font-size: 0.95rem; }
+      .checkout-login-panel span, .checkout-login-btn { font-size: 0.85rem; }
+      .courier-list { gap: 10px; }
+      .courier-card { padding: 12px 14px; gap: 11px; }
+      .courier-logo { width: 46px; height: 28px; font-size: 0.72rem; }
+      .courier-name, .courier-price { font-size: 1rem; }
+      .courier-service, .courier-eta { font-size: 0.86rem; }
+      .payment-section-label { font-size: 0.78rem; margin: 14px 0 8px; }
+      .payment-card { padding: 11px 12px; }
+      .payment-icon { width: 36px; height: 24px; font-size: 0.68rem; }
+      .payment-label { font-size: 0.95rem; }
+      .payment-sub { font-size: 0.8rem; }
+      .summary-header { padding: 18px 22px; }
+      .summary-header h2 { font-size: 1.15rem; }
+      .summary-header p { font-size: 0.85rem; }
+      .summary-body { padding: 20px 22px; }
+      .summary-items { gap: 12px; margin-bottom: 18px; }
+      .item-img, .item-img-placeholder { width: 48px; height: 48px; }
+      .item-name, .item-price, .price-row { font-size: 0.95rem; }
+      .item-variant, .item-qty { font-size: 0.8rem; }
+      .summary-divider { margin: 14px 0; }
+      .price-row.total { font-size: 1.1rem; }
+      .price-row.total .amount { font-size: 1.22rem; }
+      .coupon-row { margin-bottom: 14px; }
+      .coupon-row input { padding: 9px 11px; font-size: 0.92rem; }
+      .coupon-btn { padding: 9px 13px; font-size: 0.88rem; }
+      .pay-btn { padding: 13px; font-size: 1rem; border-radius: 10px; }
+      .secure-note { font-size: 0.78rem; margin-top: 12px; }
+      .secure-badge { font-size: 0.68rem; }
+    }
+    /* Desktop +15% rebalance */
+    @media (min-width: 901px) {
+      body { font-size: 1.15rem; line-height: 1.55; }
+      .checkout-page { padding-bottom: 64px; }
+      .steps-bar { padding: 16px 0; }
+      .steps-inner { max-width: 874px; }
+      .step-num { width: 2.01rem; height: 2.01rem; font-size: 1.06rem; }
+      .step-label { font-size: 1.04rem; }
+      .checkout-header { padding: 25px 0 23px; }
+      .checkout-header-inner { max-width: 1219px; padding: 0 32px; }
+      .checkout-header h1 { font-size: 2.19rem; }
+      .checkout-header p, .back-link { font-size: 1.09rem; }
+      .checkout-body { max-width: 1219px; margin-top: 32px; padding: 0 32px; gap: 28px; }
+      .card { padding: 25px 28px; margin-bottom: 21px; border-radius: 14px; }
+      .card-title { font-size: 1.36rem; margin-bottom: 18px; padding-bottom: 12px; }
+      .card-title-icon { width: 32px; height: 32px; }
+      .form-grid { gap: 14px; }
+      .form-group input, .form-group select, .form-group textarea { padding: 10px 14px; font-size: 1.09rem; }
+      .form-group label { font-size: 0.94rem; }
+      .checkout-login-panel { padding: 14px 16px; margin-bottom: 16px; }
+      .checkout-login-panel strong { font-size: 1.09rem; }
+      .checkout-login-panel span, .checkout-login-btn { font-size: 0.98rem; }
+      .courier-list { gap: 12px; }
+      .courier-card { padding: 14px 16px; gap: 13px; }
+      .courier-logo { width: 53px; height: 32px; font-size: 0.83rem; }
+      .courier-name, .courier-price { font-size: 1.15rem; }
+      .courier-service, .courier-eta { font-size: 0.99rem; }
+      .payment-section-label { font-size: 0.9rem; }
+      .payment-card { padding: 13px 14px; }
+      .payment-icon { width: 41px; height: 28px; font-size: 0.78rem; }
+      .payment-label { font-size: 1.09rem; }
+      .payment-sub { font-size: 0.92rem; }
+      .summary-header { padding: 21px 25px; }
+      .summary-header h2 { font-size: 1.32rem; }
+      .summary-header p { font-size: 0.98rem; }
+      .summary-body { padding: 23px 25px; }
+      .summary-items { gap: 14px; margin-bottom: 21px; }
+      .item-img, .item-img-placeholder { width: 55px; height: 55px; }
+      .item-name, .item-price, .price-row { font-size: 1.09rem; }
+      .item-variant, .item-qty { font-size: 0.92rem; }
+      .summary-divider { margin: 16px 0; }
+      .price-row.total { font-size: 1.27rem; }
+      .price-row.total .amount { font-size: 1.4rem; }
+      .coupon-row input { padding: 10px 13px; font-size: 1.06rem; }
+      .coupon-btn { padding: 10px 15px; font-size: 1.01rem; }
+      .pay-btn { padding: 15px; font-size: 1.15rem; }
+      .secure-note { font-size: 0.9rem; }
+      .secure-badge { font-size: 0.78rem; }
+    }
+    /* Desktop +15% rem correction */
+    @media (min-width: 901px) {
+      body { font-size: 1rem; }
+      .step-num { width: 1.75rem; height: 1.75rem; font-size: 0.92rem; }
+      .step-label { font-size: 0.9rem; }
+      .checkout-header h1 { font-size: 1.9rem; }
+      .checkout-header p, .back-link { font-size: 0.95rem; }
+      .card-title { font-size: 1.18rem; }
+      .form-group label { font-size: 0.82rem; }
+      .form-group input, .form-group select, .form-group textarea { font-size: 0.95rem; }
+      .checkout-login-panel strong { font-size: 0.95rem; }
+      .checkout-login-panel span, .checkout-login-btn { font-size: 0.85rem; }
+      .courier-name, .courier-price { font-size: 1rem; }
+      .courier-service, .courier-eta { font-size: 0.86rem; }
+      .payment-section-label { font-size: 0.78rem; }
+      .payment-label { font-size: 0.95rem; }
+      .payment-sub { font-size: 0.8rem; }
+      .summary-header h2 { font-size: 1.15rem; }
+      .summary-header p { font-size: 0.85rem; }
+      .item-name, .item-price, .price-row { font-size: 0.95rem; }
+      .item-variant, .item-qty { font-size: 0.8rem; }
+      .price-row.total { font-size: 1.1rem; }
+      .price-row.total .amount { font-size: 1.22rem; }
+      .coupon-row input { font-size: 0.92rem; }
+      .coupon-btn { font-size: 0.88rem; }
+      .pay-btn { font-size: 1rem; }
+      .secure-note { font-size: 0.78rem; }
+      .secure-badge { font-size: 0.68rem; }
+    }    /* Final desktop +10% checkout scale */
+    @media (min-width: 901px) {
+      body { font-size: 1.1rem; line-height: 1.58; }
+      .checkout-page { padding-bottom: 70px; }
+      .steps-bar { padding: 18px 0; }
+      .steps-inner { max-width: 961px; }
+      .step-num { width: 1.93rem; height: 1.93rem; font-size: 1.01rem; }
+      .step-label { font-size: 0.99rem; }
+      .checkout-header { padding: 28px 0 25px; }
+      .checkout-header-inner { max-width: 1341px; padding: 0 35px; }
+      .checkout-header h1 { font-size: 2.09rem; }
+      .checkout-header p, .back-link { font-size: 1.05rem; }
+      .checkout-body { max-width: 1341px; margin-top: 35px; padding: 0 35px; gap: 31px; }
+      .card { padding: 28px 31px; margin-bottom: 23px; border-radius: 15px; }
+      .card-title { font-size: 1.3rem; margin-bottom: 20px; padding-bottom: 13px; }
+      .card-title-icon { width: 35px; height: 35px; }
+      .form-grid { gap: 15px; }
+      .form-group label { font-size: 0.9rem; }
+      .form-group input, .form-group select, .form-group textarea { padding: 11px 15px; font-size: 1.05rem; }
+      .checkout-login-panel { padding: 15px 18px; margin-bottom: 18px; }
+      .checkout-login-panel strong { font-size: 1.05rem; }
+      .checkout-login-panel span, .checkout-login-btn { font-size: 0.94rem; }
+      .courier-list { gap: 13px; }
+      .courier-card { padding: 15px 18px; gap: 14px; }
+      .courier-logo { width: 58px; height: 35px; font-size: 0.91rem; }
+      .courier-name, .courier-price { font-size: 1.1rem; }
+      .courier-service, .courier-eta { font-size: 0.95rem; }
+      .payment-section-label { font-size: 0.86rem; }
+      .payment-card { padding: 14px 15px; }
+      .payment-icon { width: 45px; height: 31px; font-size: 0.86rem; }
+      .payment-label { font-size: 1.05rem; }
+      .payment-sub { font-size: 0.88rem; }
+      .summary-header { padding: 23px 28px; }
+      .summary-header h2 { font-size: 1.27rem; }
+      .summary-header p { font-size: 0.94rem; }
+      .summary-body { padding: 25px 28px; }
+      .summary-items { gap: 15px; margin-bottom: 23px; }
+      .item-img, .item-img-placeholder { width: 61px; height: 61px; }
+      .item-name, .item-price, .price-row { font-size: 1.05rem; }
+      .item-variant, .item-qty { font-size: 0.88rem; }
+      .summary-divider { margin: 18px 0; }
+      .price-row.total { font-size: 1.21rem; }
+      .price-row.total .amount { font-size: 1.34rem; }
+      .coupon-row input { padding: 11px 14px; font-size: 1.01rem; }
+      .coupon-btn { padding: 11px 17px; font-size: 0.97rem; }
+      .pay-btn { padding: 17px; font-size: 1.1rem; }
+      .secure-note { font-size: 0.86rem; }
+      .secure-badge { font-size: 0.75rem; }
+    }    </style>
+</head>
+<body>
+
+<div class="announcement-bar" id="ann-bar">
+   Gratis Ongkir untuk pembelian di atas Rp 200.000!
+  <a href="index.html#products">Belanja Sekarang -></a>
+</div>
+
+<nav id="navbar" role="navigation" aria-label="Navigasi utama">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Kanasari Store - Home">
+        <img src="assets/img/logo.png" alt="Kanasari"
+          onerror="this.onerror=null;this.src='';this.parentElement.innerHTML='<span style=\'font-size: 2.0625rem;font-weight:700;color:#E8725A;letter-spacing:1px;\'>KANASARI</span>'" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"            class="nav-link" id="nl-home">Beranda</a></li>
+        <li><a href="index.html#products"   class="nav-link" id="nl-shop">Shop</a></li>
+        <li><a href="index.html#categories" class="nav-link" id="nl-cat">Kategori</a></li>
+        <li><a href="#"                     class="nav-link" id="nl-koleksi">Koleksi</a></li>
+        <li><a href="affiliate-login.html"  class="nav-link" id="nl-aff">Affiliasi</a></li>
+        <li><a href="index.html#about-strip" class="nav-link" id="nl-about">Tentang Kami</a></li>
+      </ul>
+      <div class="nav-search" role="search">
+        <label for="nav-search-input" class="visually-hidden">Cari produk</label>
+        <input type="search" id="nav-search-input" placeholder="Cari produk batik..." autocomplete="off" />
+        <button class="nav-search-btn" aria-label="Cari">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <div class="nav-actions">
+        <a href="login.html" class="nav-action-btn" id="nav-account" aria-label="Akun Saya">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <button class="nav-action-btn" aria-label="Keranjang" style="position:relative">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="nav-badge">3</span>
+        </button>
+        <button class="nav-toggle" id="nav-toggle-btn" aria-label="Menu" aria-expanded="false">
+          <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <ul class="nav-mobile-links">
+    <li><a href="index.html"            class="nav-mobile-link">Beranda</a></li>
+    <li><a href="index.html#products"   class="nav-mobile-link">Shop</a></li>
+    <li><a href="index.html#categories" class="nav-mobile-link">Kategori</a></li>
+    <li><a href="#"                     class="nav-mobile-link">Koleksi</a></li>
+    <li><a href="affiliate-login.html"  class="nav-mobile-link">Affiliasi</a></li>
+    <li><a href="index.html#about-strip" class="nav-mobile-link">Tentang Kami</a></li>
+  </ul>
+</div>
+
+<!-- ====== CHECKOUT PAGE ====== -->
+<div class="checkout-page">
+
+  <!-- Progress Steps -->
+  <div class="steps-bar">
+    <div class="steps-inner">
+      <div class="step done">
+        <div class="step-num">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <span class="step-label">Keranjang</span>
+      </div>
+      <div class="step active">
+        <div class="step-num">2</div>
+        <span class="step-label">Checkout</span>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <span class="step-label">Pembayaran</span>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <span class="step-label">Selesai</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="checkout-header">
+    <div class="checkout-header-inner">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="15 18 9 12 15 6"/></svg>
+        Lanjut Belanja
+      </a>
+      <h1>Selesaikan Pesanan Anda</h1>
+      <p>Isi data pengiriman dan pilih metode pembayaran Anda dengan aman.</p>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="checkout-body">
+
+    <!-- LEFT COLUMN -->
+    <div class="checkout-left">
+
+      <!-- 1. Informasi Pengiriman -->
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          Informasi Pengiriman
+        </div>
+        <div class="checkout-login-panel" id="checkout-login-panel">
+          <div>
+            <strong>Sudah pernah belanja?</strong>
+            <span>Login customer untuk mengisi alamat tersimpan secara otomatis.</span>
+          </div>
+          <button class="checkout-login-btn" type="button">Login Customer</button>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" placeholder="cth: Siti Rahayu Dewi" />
+          </div>
+          <div class="form-group">
+            <label for="hp">No. HP / WhatsApp</label>
+            <input type="tel" id="hp" placeholder="cth: 08123456789" />
+          </div>
+          <div class="form-group full">
+            <label for="alamat">Alamat Lengkap</label>
+            <textarea id="alamat" placeholder="cth: Jl. Mawar No. 12, RT 03/RW 05, Kel. Bojongsoang, Kec. Bandung..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="kota">Kota / Kabupaten</label>
+            <select id="kota">
+              <option value="" disabled selected>Pilih Kota / Kabupaten</option>
+              <option>Kota Bandung</option>
+              <option>Kabupaten Bandung</option>
+              <option>Kota Jakarta Selatan</option>
+              <option>Kota Yogyakarta</option>
+              <option>Kota Surabaya</option>
+              <option>Kota Denpasar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="kecamatan">Kecamatan</label>
+            <select id="kecamatan">
+              <option value="" disabled selected>Pilih Kecamatan</option>
+              <option>Bojongsoang</option>
+              <option>Lengkong</option>
+              <option>Coblong</option>
+              <option>Kebayoran Baru</option>
+              <option>Umbulharjo</option>
+              <option>Wonokromo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="provinsi">Provinsi</label>
+            <select id="provinsi">
+              <option value="" disabled selected>Pilih Provinsi</option>
+              <option>Jawa Barat</option>
+              <option>Jawa Tengah</option>
+              <option>Jawa Timur</option>
+              <option>DKI Jakarta</option>
+              <option>DI Yogyakarta</option>
+              <option>Banten</option>
+              <option>Bali</option>
+              <option>Sumatera Utara</option>
+              <option>Sumatera Selatan</option>
+              <option>Kalimantan Timur</option>
+              <option>Sulawesi Selatan</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="kodepos">Kode Pos</label>
+            <input type="text" id="kodepos" placeholder="cth: 40235" maxlength="5" />
+          </div>
+          <div class="form-group">
+            <label for="catatan">Catatan untuk Kurir (opsional)</label>
+            <input type="text" id="catatan" placeholder="cth: Titipkan di pos satpam" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Pilih Kurir -->
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          Pilih Kurir Pengiriman
+        </div>
+        <div class="courier-list">
+          <label class="courier-card" id="courier-jne" onclick="selectCourier('jne'); showDemoModal('Kurir JNE Dipilih', 'Anda memilih JNE REG. Estimasi pengiriman 3-4 hari kerja dengan biaya Rp 15.000. Integrasi API kurir tersedia pada Tahap 2 pengembangan.')">
+            <input type="radio" name="kurir" value="jne" />
+            <div class="radio-dot"></div>
+            <div class="courier-logo" style="background:#e8101f;color:white;font-size: 0.825rem;letter-spacing:0;">JNE</div>
+            <div class="courier-info">
+              <div class="courier-name">JNE Express</div>
+              <div class="courier-service">Reguler (REG) - Terpercaya &amp; Terjamin</div>
+            </div>
+            <div>
+              <div class="courier-price">Rp 15.000</div>
+              <div class="courier-eta"> 3-4 hari kerja</div>
+            </div>
+          </label>
+
+          <label class="courier-card selected" id="courier-jnt" onclick="selectCourier('jnt'); showDemoModal('Kurir J&amp;T Dipilih', 'Anda memilih J&amp;T Regular. Estimasi pengiriman 3-5 hari kerja dengan biaya Rp 14.000. Integrasi API kurir tersedia pada Tahap 2 pengembangan.')">
+            <input type="radio" name="kurir" value="jnt" checked />
+            <div class="radio-dot"></div>
+            <div class="courier-logo" style="background:#e31e25;color:white;font-size: 0.825rem;letter-spacing:0;">J&amp;T</div>
+            <div class="courier-info">
+              <div class="courier-name">J&amp;T Express</div>
+              <div class="courier-service">Regular - Layanan 7 Hari Seminggu</div>
+            </div>
+            <div>
+              <div class="courier-price">Rp 14.000</div>
+              <div class="courier-eta"> 3-5 hari kerja</div>
+            </div>
+          </label>
+
+          <label class="courier-card" id="courier-sicepat" onclick="selectCourier('sicepat'); showDemoModal('Kurir SiCepat Dipilih', 'Anda memilih SiCepat REG. Estimasi pengiriman 2-3 hari kerja dengan biaya Rp 13.000. Integrasi API kurir tersedia pada Tahap 2 pengembangan.')">
+            <input type="radio" name="kurir" value="sicepat" />
+            <div class="radio-dot"></div>
+            <div class="courier-logo" style="background:#f37024;color:white;font-size: 0.6rem;letter-spacing:0;">SiCepat</div>
+            <div class="courier-info">
+              <div class="courier-name">SiCepat Ekspres</div>
+              <div class="courier-service">Reguler (REG) - Tercepat di Kelasnya</div>
+            </div>
+            <div>
+              <div class="courier-price">Rp 13.000</div>
+              <div class="courier-eta"> 2-3 hari kerja</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- 3. Metode Pembayaran -->
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          Metode Pembayaran
+        </div>
+
+        <div class="payment-section-label" style="margin-top:0;"> Transfer Bank</div>
+        <div class="payment-grid">
+          <div class="payment-card" onclick="showDemoModal('Transfer BCA', 'Pembayaran via Transfer BCA menggunakan Virtual Account. Fitur ini memerlukan integrasi Xendit Payment Gateway pada Tahap 2 pengembangan.')">
+            <div class="payment-icon bca">BCA</div>
+            <div>
+              <div class="payment-label">Bank BCA</div>
+              <div class="payment-sub">Virtual Account</div>
+            </div>
+          </div>
+          <div class="payment-card" onclick="showDemoModal('Transfer Mandiri', 'Pembayaran via Transfer Mandiri menggunakan Virtual Account. Fitur ini memerlukan integrasi Xendit Payment Gateway pada Tahap 2 pengembangan.')">
+            <div class="payment-icon mdr">MDR</div>
+            <div>
+              <div class="payment-label">Bank Mandiri</div>
+              <div class="payment-sub">Virtual Account</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-section-label" style="margin-top:20px;"> Dompet Digital</div>
+        <div class="payment-grid">
+          <div class="payment-card" onclick="showDemoModal('Pembayaran QRIS', 'Scan kode QRIS dari aplikasi perbankan atau e-wallet Anda. Fitur ini memerlukan integrasi Xendit Payment Gateway pada Tahap 2.')">
+            <div class="payment-icon qris" style="font-size: 0.6rem;">QRIS</div>
+            <div>
+              <div class="payment-label">QRIS</div>
+              <div class="payment-sub">Semua e-wallet</div>
+            </div>
+          </div>
+          <div class="payment-card" onclick="showDemoModal('GoPay', 'Bayar menggunakan GoPay dari aplikasi Gojek Anda. Fitur ini memerlukan integrasi Xendit Payment Gateway pada Tahap 2.')">
+            <div class="payment-icon gopay" style="font-size: 0.675rem;">GP</div>
+            <div>
+              <div class="payment-label">GoPay</div>
+              <div class="payment-sub">via Gojek App</div>
+            </div>
+          </div>
+          <div class="payment-card" onclick="showDemoModal('OVO', 'Bayar menggunakan saldo OVO Anda. Fitur ini memerlukan integrasi Xendit Payment Gateway pada Tahap 2 pengembangan.')">
+            <div class="payment-icon ovo" style="font-size: 0.75rem;">OVO</div>
+            <div>
+              <div class="payment-label">OVO</div>
+              <div class="payment-sub">via OVO App</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /checkout-left -->
+
+    <!-- RIGHT COLUMN -->
+    <div class="checkout-right">
+      <div class="order-summary-wrap">
+        <div class="summary-card">
+
+          <div class="summary-header">
+            <h2>Ringkasan Pesanan</h2>
+            <p>3 produk dalam keranjang</p>
+          </div>
+
+          <div class="summary-body">
+
+            <div class="summary-items">
+              <div class="summary-item">
+                <img src="assets/img/product_1.png" alt="Batik Tulis Megamendung" class="item-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="item-img-placeholder"></div>
+                <div class="item-details">
+                  <div class="item-name">Batik Tulis Megamendung</div>
+                  <div class="item-variant">Ukuran: M - Warna: Biru Indigo</div>
+                </div>
+                <div class="item-qty-price">
+                  <div class="item-price">Rp 185.000</div>
+                  <div class="item-qty">Qty: 1</div>
+                </div>
+              </div>
+
+              <div class="summary-item">
+                <img src="assets/img/product_2.png" alt="Batik Cap Parang Rusak" class="item-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="item-img-placeholder"></div>
+                <div class="item-details">
+                  <div class="item-name">Batik Cap Parang Rusak</div>
+                  <div class="item-variant">Ukuran: L - Warna: Cokelat Soga</div>
+                </div>
+                <div class="item-qty-price">
+                  <div class="item-price">Rp 245.000</div>
+                  <div class="item-qty">Qty: 1</div>
+                </div>
+              </div>
+
+              <div class="summary-item">
+                <img src="assets/img/product_3.png" alt="Dress Batik Kawung Modern" class="item-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="item-img-placeholder"></div>
+                <div class="item-details">
+                  <div class="item-name">Dress Batik Kawung Modern</div>
+                  <div class="item-variant">Ukuran: S - Warna: Merah Marun</div>
+                </div>
+                <div class="item-qty-price">
+                  <div class="item-price">Rp 120.000</div>
+                  <div class="item-qty">Qty: 1</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="coupon-row">
+              <input type="text" placeholder="Kode kupon atau voucher..." />
+              <button class="coupon-btn" onclick="showDemoModal('Kode Kupon', 'Masukkan kode kupon untuk mendapatkan diskon tambahan. Fitur kode kupon tersedia pada Tahap 2 pengembangan.')">Pakai</button>
+            </div>
+
+            <hr class="summary-divider" />
+
+            <div class="price-row">
+              <span class="label">Subtotal (3 produk)</span>
+              <span class="amount">Rp 550.000</span>
+            </div>
+            <div class="price-row discount">
+              <span class="label">Diskon Member</span>
+              <span class="amount">- Rp 0</span>
+            </div>
+            <div class="price-row">
+              <span class="label" id="ongkir-label">Ongkos Kirim (J&amp;T)</span>
+              <span class="amount" id="ongkir-val">Rp 14.000</span>
+            </div>
+            <div class="price-row total">
+              <span class="label">Total Pembayaran</span>
+              <span class="amount" id="total-val">Rp 564.000</span>
+            </div>
+
+            <hr class="summary-divider" />
+
+            <button class="pay-btn" onclick="showDemoModal('Proses Pembayaran', 'Setelah mengklik tombol ini, Anda akan diarahkan ke halaman pembayaran Xendit. Fitur ini memerlukan integrasi API Xendit (Tahap 2).')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Bayar Sekarang
+            </button>
+
+            <div class="secure-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Transaksi Anda dilindungi enkripsi SSL 256-bit
+            </div>
+            <div class="secure-badges">
+              <span class="secure-badge">SSL SECURED</span>
+              <span class="secure-badge">XENDIT</span>
+              <span class="secure-badge">PCI DSS</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div><!-- /checkout-right -->
+
+  </div><!-- /checkout-body -->
+</div><!-- /checkout-page -->
+
+<script src="assets/js/main.js"></script>
+<script>
+  function showDemoModal(title, message) {
+    const existing = document.getElementById('demoModal');
+    if (existing) existing.remove();
+    document.body.insertAdjacentHTML('beforeend', `
+      <div id="demoModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);backdrop-filter:blur(5px);z-index:9999;display:flex;justify-content:center;align-items:center;">
+        <div style="background:white;padding:36px 32px;border-radius:20px;width:90%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,0.2);text-align:center;animation:modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);">
+          <div style="width:52px;height:52px;background:#fef0ec;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size: 1.65rem;"></div>
+          <h3 style="font-size: 1.5rem;font-weight:700;margin-bottom:10px;color:#171717;font-family:Poppins,sans-serif;">${title}</h3>
+          <p style="font-size: 1.05rem;color:#525252;margin-bottom:28px;line-height:1.7;font-family:Poppins,sans-serif;">${message}</p>
+          <button onclick="document.getElementById('demoModal').remove()" style="background:linear-gradient(135deg,#e8725a,#c9573e);color:white;border:none;padding:13px 32px;border-radius:10px;font-size: 1.05rem;font-weight:600;cursor:pointer;width:100%;font-family:Poppins,sans-serif;">Mengerti</button>
+        </div>
+      </div>
+      <style>@keyframes modalIn{from{transform:scale(0.85);opacity:0}to{transform:scale(1);opacity:1}}</style>`);
+  }
+
+  function selectCourier(id) {
+    const prices = { jne: 15000, jnt: 14000, sicepat: 13000 };
+    const labels = { jne: 'JNE', jnt: 'J&T', sicepat: 'SiCepat' };
+    ['jne','jnt','sicepat'].forEach(c => {
+      const el = document.getElementById('courier-' + c);
+      if (!el) return;
+      el.classList.toggle('selected', c === id);
+      const dot = el.querySelector('.radio-dot');
+      if (dot) {
+        dot.style.borderColor = c === id ? '#e8725a' : '';
+        dot.style.background  = c === id ? '#e8725a' : '';
+      }
+    });
+    const price = prices[id] || 14000;
+    const total = 550000 + price;
+    const fmt = n => 'Rp ' + n.toLocaleString('id-ID');
+    document.getElementById('ongkir-val').textContent = fmt(price);
+    document.getElementById('total-val').textContent  = fmt(total);
+    document.getElementById('ongkir-label').textContent = 'Ongkos Kirim (' + labels[id] + ')';
+  }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
