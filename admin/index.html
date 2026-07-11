@@ -1605,6 +1605,83 @@
         .shipping-methods, .shipping-fields { grid-template-columns: 1fr; }
         .shipping-modal-actions .action-btn { flex: 1; }
       }
+
+      /* Final compact dashboard scale */
+      @media (min-width: 769px) {
+        html { font-size: 17px !important; }
+        body { font-size: 1rem; line-height: 1.5; }
+        .sidebar { width: 14rem; }
+        .sidebar-header { padding: 16px; }
+        .sidebar-logo { height: 104px; }
+        .sidebar-menu { padding: 15px 11px; gap: 5px; }
+        .menu-item { gap: 8px; padding: 9px 11px; font-size: 0.94rem; }
+        .menu-item svg { width: 17px; height: 17px; flex-basis: 17px; }
+        .topbar { height: 62px; padding: 0 24px; }
+        .topbar-title { font-size: 1.42rem; }
+        .topbar-actions span { font-size: 0.9rem !important; }
+        .dashboard-body { padding: 21px; }
+        .stats-grid, .payout-stats { gap: 14px; margin-bottom: 20px; }
+        .stat-card { padding: 16px; }
+        .stat-title { font-size: 0.88rem; margin-bottom: 6px; }
+        .stat-value, .stat-value[style] { font-size: 1.9rem !important; }
+        .stat-trend { font-size: 0.8rem; }
+        .table-section { padding: 16px; border-radius: 8px; }
+        .table-header { margin-bottom: 13px; }
+        .table-title, .table-title[style] { font-size: 1.13rem !important; }
+        th, td { padding: 8px 7px; font-size: 0.83rem; }
+        .status { padding: 3px 7px; font-size: 0.72rem; }
+        .action-btn, button.action-btn, .resi-btn { padding: 6px 9px; font-size: 0.72rem !important; }
+        .seller-center-grid { gap: 14px; margin-bottom: 18px; }
+        .seller-panel { padding: 16px; }
+        .seller-panel-title { font-size: 1.08rem; margin-bottom: 10px; }
+        .seller-panel-title span, .seller-panel-copy { font-size: 0.78rem; }
+        .seller-queue-card { padding: 10px; }
+        .seller-queue-value { font-size: 1.38rem; }
+        .seller-queue-label, .seller-tool-btn, .seller-health-row strong { font-size: 0.82rem; }
+        .seller-health-row span { font-size: 0.76rem; }
+        .config-grid { gap: 14px; margin-bottom: 15px; }
+        .config-group { padding: 17px; }
+        .config-group-title { font-size: 1.06rem; margin-bottom: 12px; padding-bottom: 8px; }
+        .config-field { margin-bottom: 11px; }
+        .config-label, .filter-label, .config-input, .filter-select { font-size: 0.86rem; }
+        .config-input, .filter-select { padding: 7px 10px; }
+        .config-save-btn, .inner-tab-btn { padding: 7px 14px; font-size: 0.84rem; }
+        .order-workspace { padding: 18px; }
+        .order-page-head, .report-page-head { margin-bottom: 16px; }
+        .order-page-head p, .report-page-head p { font-size: 0.82rem; }
+        .order-toolbar { margin-bottom: 13px; }
+        .report-kpi-grid { gap: 12px; }
+        .report-kpi, .report-card { padding: 15px; }
+      }
+      @media (max-width: 768px) {
+        html { font-size: 16px !important; }
+        .topbar { min-height: 54px; height: 54px; padding: 0 12px; }
+        .topbar-title { font-size: 1.08rem; }
+        .topbar-actions span { font-size: 0.82rem !important; }
+        .mobile-toggle { width: 34px; height: 34px; }
+        .dashboard-body { padding: 12px !important; padding-bottom: 82px !important; }
+        .stats-grid, .payout-stats { gap: 8px; margin-bottom: 14px; }
+        .stat-card { padding: 11px; }
+        .stat-title { font-size: 0.78rem; margin-bottom: 5px; }
+        .stat-value, .stat-value[style] { font-size: 1.5rem !important; }
+        .stat-trend { font-size: 0.72rem; }
+        .seller-center-grid { gap: 10px; margin-bottom: 13px; }
+        .seller-panel { padding: 12px; }
+        .seller-panel-title { font-size: 1rem; margin-bottom: 9px; }
+        .seller-panel-title span, .seller-panel-copy { font-size: 0.75rem; }
+        .seller-queue-card { padding: 9px; }
+        .seller-queue-value { font-size: 1.25rem; }
+        .seller-queue-label, .seller-tool-btn, .seller-health-row strong { font-size: 0.76rem; }
+        .table-section, .order-workspace, .config-group, .report-card { padding: 12px; }
+        .table-title, .table-title[style] { font-size: 1rem !important; }
+        th, td { padding: 8px 7px; font-size: 0.78rem; }
+        .status { padding: 3px 7px; font-size: 0.68rem; }
+        .action-btn, button.action-btn, .resi-btn { padding: 6px 9px; font-size: 0.72rem !important; }
+        .order-page-head p, .report-page-head p { font-size: 0.78rem; }
+        .order-status-chip { min-height: 29px; font-size: 0.78rem !important; }
+        .report-kpi-grid { gap: 7px; }
+        .report-kpi { padding: 10px; }
+      }
 </style>
   </head>
   <body>
