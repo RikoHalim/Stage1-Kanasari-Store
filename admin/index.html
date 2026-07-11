@@ -876,7 +876,10 @@
           overflow-x: hidden;
         }
         .stats-grid,
-        .payout-stats,
+        .payout-stats {
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 12px;
+        }
         .config-grid,
         .rekening-grid {
           grid-template-columns: 1fr !important;
