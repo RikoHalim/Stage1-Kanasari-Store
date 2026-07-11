@@ -1541,6 +1541,11 @@
       .line-grid { position: absolute; inset: 8px 4px 28px; display: grid; grid-template-rows: repeat(4, 1fr); }
       .line-grid i { border-top: 1px dashed var(--neutral-200); }
       .line-labels { position: absolute; left: 4px; right: 4px; bottom: 0; display: flex; justify-content: space-between; color: var(--neutral-500); font-size: .82rem; }
+      .line-values { position: absolute; inset: 8px 4px 28px; z-index: 2; pointer-events: none; }
+      .line-value { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -125%); padding: 2px 5px; border: 1px solid var(--neutral-200); border-radius: 4px; background: rgba(255,255,255,.94); color: var(--neutral-700); font-size: .7rem; font-weight: 600; line-height: 1.2; white-space: nowrap; }
+      .line-value:first-child { transform: translate(0, -125%); }
+      .line-value:last-child { transform: translate(-100%, -125%); }
+      .sales-points circle { fill: var(--white); stroke: var(--primary); stroke-width: 3; vector-effect: non-scaling-stroke; }
       .report-table { margin-top: 16px; }
 
       @media (max-width: 1050px) {
@@ -3261,7 +3266,19 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
                     <defs><linearGradient id="salesArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8725a" stop-opacity=".28"/><stop offset="100%" stop-color="#e8725a" stop-opacity="0"/></linearGradient></defs>
                     <path d="M0 152 L116 118 L233 137 L350 72 L466 94 L583 42 L700 63 L700 190 L0 190 Z" fill="url(#salesArea)"></path>
                     <polyline points="0,152 116,118 233,137 350,72 466,94 583,42 700,63" fill="none" stroke="#e8725a" stroke-width="4" vector-effect="non-scaling-stroke"></polyline>
+                    <g class="sales-points" aria-hidden="true">
+                      <circle cx="0" cy="152" r="5"></circle><circle cx="116" cy="118" r="5"></circle><circle cx="233" cy="137" r="5"></circle><circle cx="350" cy="72" r="5"></circle><circle cx="466" cy="94" r="5"></circle><circle cx="583" cy="42" r="5"></circle><circle cx="700" cy="63" r="5"></circle>
+                    </g>
                   </svg>
+                  <div class="line-values" aria-label="Omzet harian: Minggu Rp1,82 juta, Senin Rp2,95 juta, Selasa Rp2,38 juta, Rabu Rp4,12 juta, Kamis Rp3,37 juta, Jumat Rp5,45 juta, Sabtu Rp4,49 juta">
+                    <span class="line-value" style="--x:0%;--y:80%">Rp1,82 jt</span>
+                    <span class="line-value" style="--x:16.57%;--y:62.1%">Rp2,95 jt</span>
+                    <span class="line-value" style="--x:33.29%;--y:72.1%">Rp2,38 jt</span>
+                    <span class="line-value" style="--x:50%;--y:37.9%">Rp4,12 jt</span>
+                    <span class="line-value" style="--x:66.57%;--y:49.5%">Rp3,37 jt</span>
+                    <span class="line-value" style="--x:83.29%;--y:22.1%">Rp5,45 jt</span>
+                    <span class="line-value" style="--x:100%;--y:33.2%">Rp4,49 jt</span>
+                  </div>
                   <div class="line-labels"><span>Min</span><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span></div>
                 </div>
               </article>
