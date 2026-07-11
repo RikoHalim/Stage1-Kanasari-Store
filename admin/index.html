@@ -1123,7 +1123,7 @@
         .table-title, .table-title[style] { font-size: 1.25rem !important; }
         th, td { padding: 10px 8px; font-size: 0.9rem; line-height: 1.35; }
         .status { padding: 4px 9px; font-size: 0.78rem; }
-        .action-btn, button.action-btn, .resi-btn { padding: 6px 10px; font-size: 0.88rem !important; line-height: 1.2; }
+        .action-btn, button.action-btn, .resi-btn { padding: 6px 10px; font-size: 0.76rem !important; line-height: 1.2; }
         .config-grid { gap: 18px; margin-bottom: 18px; }
         .config-group { padding: 20px; }
         .config-group-title { font-size: 1.15rem; margin-bottom: 14px; padding-bottom: 10px; }
@@ -1231,7 +1231,7 @@
         .table-title, .table-title[style] { font-size: 1.25rem !important; }
         th, td { font-size: 0.9rem; }
         .status { font-size: 0.78rem; }
-        .action-btn, button.action-btn, .resi-btn { font-size: 0.88rem !important; }
+        .action-btn, button.action-btn, .resi-btn { font-size: 0.76rem !important; }
         .config-group-title { font-size: 1.15rem; }
         .config-label, .filter-label { font-size: 0.95rem; }
         .config-input, .filter-select { font-size: 0.95rem; }
@@ -1575,6 +1575,35 @@
         .donut-report-wrap { grid-template-columns: 1fr; justify-items: center; }
         .report-legend { width: 100%; }
         .affiliate-setting-row { align-items: flex-start; }
+      }
+
+      /* Compact order navigation and Shopee-style shipping setup */
+      .order-status-tabs { gap: 4px !important; padding: 3px; border: 1px solid var(--neutral-200); border-radius: 7px; background: var(--neutral-100); width: fit-content; max-width: 100%; }
+      .order-status-chip { min-height: 31px; gap: 4px !important; padding: 5px 8px !important; border: 0 !important; border-radius: 5px !important; background: transparent; font-size: 0.76rem !important; line-height: 1; white-space: nowrap; box-shadow: none; }
+      .order-status-chip span { min-width: 1.12rem !important; height: 1.12rem !important; padding: 0 0.25rem; font-size: 0.68rem !important; }
+      .order-status-chip.active, .order-status-chip:hover { background: var(--white); box-shadow: 0 1px 3px rgba(23, 23, 23, 0.08); }
+      .shipping-modal-card { width: min(92vw, 520px); max-height: min(88vh, 680px); overflow-y: auto; background: var(--white); padding: 24px; border-radius: 10px; box-shadow: 0 18px 50px rgba(23, 23, 23, 0.2); }
+      .shipping-modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+      .shipping-modal-head h3 { font-size: 1.25rem; color: var(--neutral-900); }
+      .shipping-modal-head p { margin-top: 4px; color: var(--neutral-500); font-size: 0.86rem; }
+      .shipping-modal-close { width: 32px; height: 32px; border: 0; background: var(--neutral-100); border-radius: 5px; cursor: pointer; font-size: 1rem; }
+      .shipping-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .shipping-method { display: grid; grid-template-columns: auto 1fr; gap: 9px; align-items: start; padding: 12px; border: 1px solid var(--neutral-200); border-radius: 7px; cursor: pointer; }
+      .shipping-method:has(input:checked) { border-color: var(--primary); background: var(--primary-pale); }
+      .shipping-method strong, .shipping-method small { display: block; }
+      .shipping-method strong { font-size: 0.92rem; }
+      .shipping-method small { margin-top: 3px; color: var(--neutral-500); font-size: 0.78rem; line-height: 1.35; }
+      .shipping-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+      .shipping-fields label { display: grid; gap: 6px; color: var(--neutral-600); font-size: 0.8rem; }
+      .shipping-fields select, .shipping-fields input { width: 100%; min-height: 40px; padding: 8px 10px; border: 1px solid var(--neutral-200); border-radius: 6px; background: var(--white); font: inherit; font-size: 0.86rem; }
+      .shipping-note { margin-top: 14px; padding: 11px 12px; border-radius: 6px; background: var(--neutral-100); color: var(--neutral-600); font-size: 0.8rem; line-height: 1.45; }
+      .shipping-modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+      @media (max-width: 768px) {
+        .order-status-tabs { width: 100%; gap: 3px !important; margin-bottom: 14px; padding: 3px 3px 5px; border-radius: 6px; }
+        .order-status-chip { min-height: 29px; padding: 4px 7px !important; font-size: 0.72rem !important; }
+        .shipping-modal-card { padding: 18px; }
+        .shipping-methods, .shipping-fields { grid-template-columns: 1fr; }
+        .shipping-modal-actions .action-btn { flex: 1; }
       }
 </style>
   </head>
@@ -2050,10 +2079,10 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
             <div class="order-page-head">
               <div>
                 <div class="table-title">Pesanan Saya</div>
-                <p>Proses pesanan berdasarkan tahap, lalu cetak satu resi untuk setiap pengiriman.</p>
+                <p>Atur metode pengiriman, cetak resi, lalu serahkan paket ke kurir sesuai tahap pesanan.</p>
               </div>
               <div class="order-head-actions">
-                <button class="action-btn" onclick="showDemoModal('Atur Pickup', 'Pickup massal akan tersambung ke agregator logistik pada Tahap 2.')">Atur Pickup</button>
+                <button class="action-btn" onclick="showDemoModal('Atur Pengiriman Massal', 'Pilih pesanan lunas, lalu tentukan metode pick-up atau drop-off secara massal pada Tahap 2.')">Atur Pengiriman Massal</button>
                 <button class="action-btn resi-btn" onclick="showDemoModal('Cetak Massal', 'Pilih pesanan siap kirim yang belum memiliki resi tercetak.')">Cetak Massal</button>
               </div>
             </div>
@@ -2115,7 +2144,7 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
                       <td>Rp 450.000</td>
                       <td><span class="status status-paid">Lunas</span></td>
                       <td><span class="status status-pending" data-shipping-status>Perlu Diproses</span></td>
-                      <td><div class="action-stack"><button class="action-btn" onclick="showOrderDetail('#ORD-8823')">Detail</button><button class="action-btn action-primary" onclick="processOrder(this, '#ORD-8823')">Proses Pesanan</button></div></td>
+                      <td><div class="action-stack"><button class="action-btn" onclick="showOrderDetail('#ORD-8823')">Detail</button><button class="action-btn action-primary" onclick="openShippingSetup(this, '#ORD-8823')">Atur Pengiriman</button></div></td>
                     </tr>
                     <tr data-order-status="Perlu Dikirim">
                       <td><strong>#ORD-8824</strong><small>08 Jul 2026, 14:02</small></td>
@@ -3529,21 +3558,76 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
         showDemoModal("Proses Pesanan", message);
       }
 
-      function processOrder(button, orderId) {
-        const row = button.closest("tr");
+      function openShippingSetup(button, orderId) {
+        const existing = document.getElementById("demoModal");
+        if (existing) existing.remove();
+        window.activeShippingButton = button;
+        const courier = button.closest("tr")?.querySelector("td:nth-child(2) small")?.textContent || "Jasa kirim reguler";
+        document.body.insertAdjacentHTML(
+          "beforeend",
+          `
+          <div id="demoModal" style="position:fixed;inset:0;background:rgba(0,0,0,.42);backdrop-filter:blur(4px);z-index:9999;display:flex;justify-content:center;align-items:center;padding:16px;">
+            <form class="shipping-modal-card" onsubmit="confirmShippingSetup(event, '${orderId}')">
+              <div class="shipping-modal-head">
+                <div><h3>Atur Pengiriman</h3><p>${orderId} &middot; ${courier}</p></div>
+                <button type="button" class="shipping-modal-close" onclick="document.getElementById('demoModal').remove()" aria-label="Tutup">&#10005;</button>
+              </div>
+              <div class="shipping-methods" role="radiogroup" aria-label="Metode penyerahan paket">
+                <label class="shipping-method"><input type="radio" name="shippingMethod" value="Drop-off" checked onchange="updateShippingMethodFields()"><span><strong>Drop-off</strong><small>Antar paket ke counter jasa kirim pilihan.</small></span></label>
+                <label class="shipping-method"><input type="radio" name="shippingMethod" value="Pick-up" onchange="updateShippingMethodFields()"><span><strong>Pick-up</strong><small>Kurir menjemput paket dari alamat toko.</small></span></label>
+              </div>
+              <div class="shipping-fields">
+                <label>Jasa kirim<input value="${courier}" readonly></label>
+                <label><span id="shippingScheduleLabel">Batas drop-off</span><select id="shippingSchedule" required><option value="Hari ini, sebelum 18:00">Hari ini, sebelum 18:00</option><option value="Besok, sebelum 12:00">Besok, sebelum 12:00</option></select></label>
+              </div>
+              <div class="shipping-note" id="shippingMethodNote">Nomor resi dibuat setelah pengiriman dikonfirmasi. Cetak label dan tempelkan pada paket sebelum diserahkan ke counter.</div>
+              <div class="shipping-modal-actions"><button type="button" class="action-btn" onclick="document.getElementById('demoModal').remove()">Batal</button><button type="submit" class="action-btn action-primary">Konfirmasi Pengiriman</button></div>
+            </form>
+          </div>`,
+        );
+      }
+
+      function updateShippingMethodFields() {
+        const method = document.querySelector('input[name="shippingMethod"]:checked')?.value || "Drop-off";
+        const label = document.getElementById("shippingScheduleLabel");
+        const schedule = document.getElementById("shippingSchedule");
+        const note = document.getElementById("shippingMethodNote");
+        if (!label || !schedule || !note) return;
+        if (method === "Pick-up") {
+          label.textContent = "Jadwal penjemputan";
+          schedule.innerHTML = '<option value="Besok, 09:00 - 12:00">Besok, 09:00 - 12:00</option><option value="Besok, 13:00 - 16:00">Besok, 13:00 - 16:00</option>';
+          note.textContent = "Siapkan paket sebelum jadwal penjemputan. Resi dan label tersedia setelah pengiriman dikonfirmasi.";
+        } else {
+          label.textContent = "Batas drop-off";
+          schedule.innerHTML = '<option value="Hari ini, sebelum 18:00">Hari ini, sebelum 18:00</option><option value="Besok, sebelum 12:00">Besok, sebelum 12:00</option>';
+          note.textContent = "Nomor resi dibuat setelah pengiriman dikonfirmasi. Cetak label dan tempelkan pada paket sebelum diserahkan ke counter.";
+        }
+      }
+
+      function confirmShippingSetup(event, orderId) {
+        event.preventDefault();
+        const button = window.activeShippingButton;
+        const row = button?.closest("tr");
         const status = row?.querySelector("[data-shipping-status]");
+        const method = document.querySelector('input[name="shippingMethod"]:checked')?.value || "Drop-off";
+        const schedule = document.getElementById("shippingSchedule")?.value || "jadwal dipilih";
         if (status) {
-          status.textContent = "Siap Dikirim";
+          status.textContent = "Siap Diserahkan";
           status.className = "status status-diproses";
           status.setAttribute("data-shipping-status", "");
         }
-        button.textContent = "Cetak Resi";
-        button.className = "action-btn resi-btn";
-        button.onclick = () => printResiMock(orderId, button);
-        showDemoModal(
-          "Pesanan Diproses",
-          orderId + " sudah dikonfirmasi dan dikemas. Cetak resi satu kali sebelum paket diserahkan ke kurir.",
-        );
+        if (row) row.dataset.shippingMethod = method;
+        if (button) {
+          button.textContent = "Cetak Resi";
+          button.className = "action-btn resi-btn";
+          button.onclick = () => printResiMock(orderId, button);
+        }
+        document.getElementById("demoModal")?.remove();
+        showDemoModal("Pengiriman Diatur", orderId + " menggunakan " + method + " (" + schedule + "). Cetak resi, kemas paket, lalu serahkan ke kurir.");
+      }
+
+      function processOrder(button, orderId) {
+        openShippingSetup(button, orderId);
       }
 
       function printResiMock(orderId, button) {
