@@ -442,6 +442,21 @@ function filterSubTab(subcat) {
   });
   applyProductFilters();
 }
+function togglePriceSort(button) {
+  const nextMode = button.dataset.subcat === 'low' && button.classList.contains('active')
+    ? 'high'
+    : 'low';
+  button.dataset.subcat = nextMode;
+  button.setAttribute(
+    'aria-label',
+    nextMode === 'low'
+      ? 'Urutkan harga dari rendah ke tinggi'
+      : 'Urutkan harga dari tinggi ke rendah'
+  );
+  const icon = button.querySelector('.price-sort-icon');
+  if (icon) icon.innerHTML = nextMode === 'low' ? '&#8593;' : '&#8595;';
+  filterSubTab(nextMode);
+}
 /* ======================
    SCROLL REVEAL
    ====================== */

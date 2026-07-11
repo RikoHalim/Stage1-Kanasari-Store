@@ -1301,7 +1301,282 @@
       @media (min-width: 769px) and (max-width: 1180px) {
         .dashboard-body { padding: 28px; }
         table { min-width: 911px; }
-      }      </style>
+      }            /* Client revision: simplified seller workspace */
+      .seller-panel-copy,
+      .order-page-head p,
+      .report-page-head p,
+      .table-subtitle {
+        color: var(--neutral-500);
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: -6px 0 16px;
+      }
+      .seller-queue-grid-compact { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .seller-queue-card.priority {
+        border-color: var(--primary);
+        background: var(--primary-pale);
+      }
+
+      .order-workspace { display: grid; gap: 18px; }
+      .order-page-head,
+      .report-page-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .order-page-head p,
+      .report-page-head p { margin: 6px 0 0; }
+      .order-head-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+      .order-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .order-search {
+        width: min(100%, 430px);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--neutral-300);
+        border-radius: var(--r-md);
+        padding: 0 12px;
+        background: var(--white);
+      }
+      .order-search svg { width: 19px; height: 19px; flex: 0 0 auto; color: var(--neutral-400); }
+      .order-search input {
+        border: 0;
+        outline: 0;
+        width: 100%;
+        min-height: 42px;
+        font: inherit;
+        font-size: 1rem;
+        background: transparent;
+      }
+      .order-table-section { padding: 0; overflow: hidden; }
+      .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .order-table-section table { min-width: 930px; }
+      .order-table-section th,
+      .order-table-section td { padding: 15px 18px; }
+      td small {
+        display: block;
+        margin-top: 4px;
+        color: var(--neutral-400);
+        font-size: 0.84em;
+        line-height: 1.35;
+      }
+      .action-btn.action-primary { background: var(--primary); color: var(--white); }
+      .resi-printed {
+        background: #ecfdf5;
+        color: #047857;
+        cursor: default;
+        opacity: 1;
+      }
+      .resi-printed:disabled { opacity: 1; }
+      .order-empty { padding: 36px 20px; text-align: center; color: var(--neutral-500); }
+
+      .affiliate-admin-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+      .affiliate-settings-card { padding: 22px; }
+      .affiliate-setting-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 13px 0;
+        border-bottom: 1px solid var(--neutral-100);
+      }
+      .affiliate-setting-row strong,
+      .affiliate-setting-row span { display: block; }
+      .affiliate-setting-row > div:first-child span {
+        color: var(--neutral-500);
+        font-size: .92rem;
+        margin-top: 3px;
+      }
+      .percent-input {
+        display: flex;
+        align-items: center;
+        width: 92px;
+        border: 1px solid var(--neutral-300);
+        border-radius: var(--r-md);
+        background: var(--white);
+        overflow: hidden;
+        flex: 0 0 auto;
+      }
+      .percent-input input {
+        width: 100%;
+        min-width: 0;
+        border: 0;
+        outline: 0;
+        padding: 9px 8px 9px 11px;
+        font: inherit;
+        background: transparent;
+      }
+      .percent-input > span { padding-right: 10px; color: var(--neutral-500); }
+      .table-percent { width: 78px; }
+      .affiliate-summary-card {
+        background: var(--white);
+        border: 1px solid var(--neutral-200);
+        border-radius: var(--r-lg);
+        padding: 22px;
+        box-shadow: var(--shadow-sm);
+      }
+      .affiliate-summary-list { display: grid; gap: 2px; }
+      .affiliate-summary-list div {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--neutral-100);
+      }
+      .affiliate-summary-list div:last-child { border-bottom: 0; }
+      .affiliate-summary-list span { color: var(--neutral-500); }
+      .table-search-input {
+        width: min(100%, 280px);
+        min-height: 42px;
+        padding: 8px 12px;
+        border: 1px solid var(--neutral-300);
+        border-radius: var(--r-md);
+        font: inherit;
+      }
+
+      .report-controls {
+        display: flex;
+        gap: 12px;
+        padding: 16px;
+        margin: 18px 0;
+        background: var(--white);
+        border: 1px solid var(--neutral-200);
+        border-radius: var(--r-lg);
+      }
+      .report-controls label { display: grid; gap: 6px; min-width: 210px; }
+      .report-controls label > span { font-size: .88rem; color: var(--neutral-500); font-weight: 600; }
+      .report-tabs { margin: 0 0 18px; }
+      .report-export {
+        background: var(--white);
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        border-radius: var(--r-md);
+        padding: 10px 16px;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .report-kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+      .report-kpi,
+      .report-card {
+        background: var(--white);
+        border: 1px solid var(--neutral-200);
+        border-radius: var(--r-lg);
+        box-shadow: var(--shadow-sm);
+      }
+      .report-kpi { padding: 18px; }
+      .report-kpi > span,
+      .report-kpi small { display: block; color: var(--neutral-500); }
+      .report-kpi strong { display: block; font-size: 1.6rem; margin: 6px 0; }
+      .report-kpi small { font-size: .88rem; }
+      .positive { color: #059669 !important; }
+      .report-visual-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      .report-card { padding: 20px; min-width: 0; }
+      .report-card-wide { grid-column: 1 / -1; }
+      .report-card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .report-card-head strong,
+      .report-card-head span { display: block; }
+      .report-card-head strong { font-size: 1.16rem; }
+      .report-card-head div span { color: var(--neutral-500); font-size: .88rem; margin-top: 3px; }
+      .donut-report-wrap { display: grid; grid-template-columns: 180px 1fr; align-items: center; gap: 24px; }
+      .donut-report {
+        width: 180px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: conic-gradient(#e8725a 0 76%, #252525 76% 94%, #f0b9ac 94% 100%);
+        display: grid;
+        place-items: center;
+        position: relative;
+      }
+      .donut-report::after {
+        content: "";
+        position: absolute;
+        width: 60%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--white);
+      }
+      .donut-report > div { position: relative; z-index: 1; text-align: center; }
+      .donut-report strong,
+      .donut-report span { display: block; }
+      .donut-report span { color: var(--neutral-500); font-size: .82rem; }
+      .report-legend { display: grid; gap: 12px; }
+      .report-legend div { display: grid; grid-template-columns: 10px 1fr auto; align-items: center; gap: 8px; }
+      .report-legend i { width: 10px; height: 10px; border-radius: 50%; }
+      .horizontal-chart { display: grid; gap: 17px; padding-top: 8px; }
+      .horizontal-chart > div { display: grid; grid-template-columns: 70px minmax(80px, 1fr) 58px; align-items: center; gap: 10px; }
+      .horizontal-chart i { height: 10px; border-radius: 4px; background: var(--neutral-100); overflow: hidden; }
+      .horizontal-chart b { display: block; height: 100%; background: var(--primary); border-radius: inherit; }
+      .horizontal-chart span,
+      .horizontal-chart strong { font-size: .9rem; }
+      .line-chart { position: relative; height: 230px; padding: 8px 4px 28px; }
+      .line-chart svg { position: absolute; inset: 8px 4px 28px; width: calc(100% - 8px); height: calc(100% - 36px); }
+      .line-grid { position: absolute; inset: 8px 4px 28px; display: grid; grid-template-rows: repeat(4, 1fr); }
+      .line-grid i { border-top: 1px dashed var(--neutral-200); }
+      .line-labels { position: absolute; left: 4px; right: 4px; bottom: 0; display: flex; justify-content: space-between; color: var(--neutral-500); font-size: .82rem; }
+      .report-table { margin-top: 16px; }
+
+      @media (max-width: 1050px) {
+        .seller-queue-grid-compact,
+        .report-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .affiliate-admin-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 768px) {
+        .order-page-head,
+        .report-page-head,
+        .order-toolbar,
+        .table-header { align-items: stretch; flex-direction: column; }
+        .order-head-actions { justify-content: flex-start; }
+        .order-search,
+        .table-search-input { width: 100%; }
+        .order-status-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+        .order-status-chip { flex: 0 0 auto; }
+        .report-controls { display: grid; grid-template-columns: 1fr 1fr; }
+        .report-controls label { min-width: 0; }
+        .report-kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+        .report-kpi { padding: 13px; }
+        .report-kpi strong { font-size: 1.2rem; }
+        .report-visual-grid { grid-template-columns: 1fr; }
+        .report-card-wide { grid-column: auto; }
+        .donut-report-wrap { grid-template-columns: 138px 1fr; gap: 14px; }
+        .donut-report { width: 138px; }
+        .seller-queue-grid-compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      @media (max-width: 420px) {
+        .report-controls { grid-template-columns: 1fr; }
+        .report-kpi-grid { grid-template-columns: 1fr 1fr; }
+        .donut-report-wrap { grid-template-columns: 1fr; justify-items: center; }
+        .report-legend { width: 100%; }
+        .affiliate-setting-row { align-items: flex-start; }
+      }
+</style>
   </head>
   <body>
     <!-- Sidebar -->
@@ -1599,102 +1874,27 @@
           </div>
 
           <div class="seller-center-grid">
-            <section
-              class="seller-panel"
-              aria-label="Operasional seller center"
-            >
+            <section class="seller-panel" aria-label="Tindakan utama seller">
               <div class="seller-panel-title">
-                Pusat Operasional Seller <span>hari ini</span>
+                Perlu Ditindak <span>hari ini</span>
               </div>
-              <div class="seller-queue-grid">
-                <button
-                  class="seller-queue-card"
-                  onclick="switchTab('pesanan')"
-                >
+              <p class="seller-panel-copy">Selesaikan pekerjaan prioritas dari satu tempat.</p>
+              <div class="seller-queue-grid seller-queue-grid-compact">
+                <button class="seller-queue-card" onclick="openOrderStatus('Belum Bayar')">
                   <div class="seller-queue-value">18</div>
                   <div class="seller-queue-label">Belum Bayar</div>
                 </button>
-                <button
-                  class="seller-queue-card"
-                  onclick="switchTab('pesanan')"
-                >
+                <button class="seller-queue-card priority" onclick="openOrderStatus('Perlu Dikirim')">
                   <div class="seller-queue-value">42</div>
                   <div class="seller-queue-label">Perlu Dikirim</div>
                 </button>
-                <button
-                  class="seller-queue-card"
-                  onclick="switchTab('pesanan')"
-                >
+                <button class="seller-queue-card" onclick="openOrderStatus('Dikirim')">
                   <div class="seller-queue-value">36</div>
                   <div class="seller-queue-label">Sedang Dikirim</div>
                 </button>
-                <button
-                  class="seller-queue-card"
-                  onclick="switchTab('komplain')"
-                >
+                <button class="seller-queue-card" onclick="switchTab('komplain')">
                   <div class="seller-queue-value">5</div>
-                  <div class="seller-queue-label">Retur/Komplain</div>
-                </button>
-                <button class="seller-queue-card" onclick="switchTab('produk')">
-                  <div class="seller-queue-value">9</div>
-                  <div class="seller-queue-label">Stok Menipis</div>
-                </button>
-                <button class="seller-queue-card" onclick="switchTab('payout')">
-                  <div class="seller-queue-value">12</div>
-                  <div class="seller-queue-label">Payout Siap</div>
-                </button>
-              </div>
-              <div class="seller-tool-grid" aria-label="Shortcut fitur seller">
-                <button class="seller-tool-btn" onclick="switchTab('produk')">
-                  Produk Saya
-                </button>
-                <button
-                  class="seller-tool-btn"
-                  onclick="
-                    showDemoModal(
-                      'Promosi Toko',
-                      'Voucher toko, paket diskon, flash sale, dan campaign akan aktif saat backend tersedia.',
-                    )
-                  "
-                >
-                  Promosi
-                </button>
-                <button
-                  class="seller-tool-btn"
-                  onclick="
-                    showDemoModal(
-                      'Ulasan Produk',
-                      'Admin dapat memantau rating, ulasan produk, dan feedback pembeli setelah backend tersedia.',
-                    )
-                  "
-                >
-                  Ulasan Produk
-                </button>
-                <button class="seller-tool-btn" onclick="switchTab('laporan')">
-                  Analitik
-                </button>
-                <button class="seller-tool-btn" onclick="switchTab('kategori')">
-                  Kategori
-                </button>
-                <button class="seller-tool-btn" onclick="switchTab('komplain')">
-                  Retur
-                </button>
-                <button
-                  class="seller-tool-btn"
-                  onclick="switchTab('konfigurasi')"
-                >
-                  Toko
-                </button>
-                <button
-                  class="seller-tool-btn"
-                  onclick="
-                    showDemoModal(
-                      'Logistik',
-                      'Pickup, cetak resi massal, dan sinkron status kurir terhubung dengan agregator logistik pada Tahap 2.',
-                    )
-                  "
-                >
-                  Logistik
+                  <div class="seller-queue-label">Pengembalian</div>
                 </button>
               </div>
             </section>
@@ -1846,177 +2046,108 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
 
         <!-- SECTION: PESANAN -->
         <div id="section-pesanan" class="page-section">
-          <div class="table-section">
-            <div class="table-header">
-              <div class="table-title">Daftar Semua Pesanan</div>
-              <input
-                type="text"
-                placeholder="Cari ID Pesanan..."
-                style="
-                  padding: 10px 14px;
-                  border: 1px solid var(--neutral-300);
-                  border-radius: var(--r-md);
-                  font-family: var(--font);
-                "
-              />
+          <div class="order-workspace">
+            <div class="order-page-head">
+              <div>
+                <div class="table-title">Pesanan Saya</div>
+                <p>Proses pesanan berdasarkan tahap, lalu cetak satu resi untuk setiap pengiriman.</p>
+              </div>
+              <div class="order-head-actions">
+                <button class="action-btn" onclick="showDemoModal('Atur Pickup', 'Pickup massal akan tersambung ke agregator logistik pada Tahap 2.')">Atur Pickup</button>
+                <button class="action-btn resi-btn" onclick="showDemoModal('Cetak Massal', 'Pilih pesanan siap kirim yang belum memiliki resi tercetak.')">Cetak Massal</button>
+              </div>
             </div>
-            <div
-              class="order-status-tabs"
-              role="group"
-              aria-label="Filter status pesanan"
-            >
-              <button
-                class="order-status-chip active"
-                onclick="setOrderStatusTab(this, 'Semua')"
-              >
-                Semua <span>128</span>
-              </button>
-              <button
-                class="order-status-chip"
-                onclick="setOrderStatusTab(this, 'Belum Bayar')"
-              >
-                Belum Bayar <span>18</span>
-              </button>
-              <button
-                class="order-status-chip"
-                onclick="setOrderStatusTab(this, 'Perlu Dikirim')"
-              >
-                Perlu Dikirim <span>42</span>
-              </button>
-              <button
-                class="order-status-chip"
-                onclick="setOrderStatusTab(this, 'Dikirim')"
-              >
-                Dikirim <span>36</span>
-              </button>
-              <button
-                class="order-status-chip"
-                onclick="setOrderStatusTab(this, 'Selesai')"
-              >
-                Selesai <span>27</span>
-              </button>
-              <button
-                class="order-status-chip"
-                onclick="setOrderStatusTab(this, 'Pengembalian/Pembatalan')"
-              >
-                Pengembalian/Pembatalan <span>5</span>
-              </button>
+
+            <div class="order-status-tabs" role="group" aria-label="Filter status pesanan">
+              <button class="order-status-chip active" data-order-filter="Semua" onclick="setOrderStatusTab(this, 'Semua')">Semua <span>6</span></button>
+              <button class="order-status-chip" data-order-filter="Belum Bayar" onclick="setOrderStatusTab(this, 'Belum Bayar')">Belum Bayar <span>1</span></button>
+              <button class="order-status-chip" data-order-filter="Perlu Dikirim" onclick="setOrderStatusTab(this, 'Perlu Dikirim')">Perlu Dikirim <span>2</span></button>
+              <button class="order-status-chip" data-order-filter="Dikirim" onclick="setOrderStatusTab(this, 'Dikirim')">Dikirim <span>1</span></button>
+              <button class="order-status-chip" data-order-filter="Selesai" onclick="setOrderStatusTab(this, 'Selesai')">Selesai <span>1</span></button>
+              <button class="order-status-chip" data-order-filter="Pengembalian/Pembatalan" onclick="setOrderStatusTab(this, 'Pengembalian/Pembatalan')">Pengembalian <span>1</span></button>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID Pesanan</th>
-                  <th>Pelanggan</th>
-                  <th>Tanggal</th>
-                  <th>Total</th>
-                  <th>Status Pembayaran</th>
-                  <th>Status Pengiriman</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#ORD-8821</td>
-                  <td>Budi Santoso</td>
-                  <td>09 Jul 2026</td>
-                  <td>Rp 620.000</td>
-                  <td><span class="status status-paid">Lunas</span></td>
-                  <td><span class="status status-shipped">Dikirim</span></td>
-                  <td>
-                    <div class="action-stack">
-                      <button
-                        class="action-btn"
-                        onclick="
-                          showDemoModal(
-                            'Detail Transaksi',
-                            'Data lengkap transaksi akan diambil dari Database di Tahap 2.',
-                          )
-                        "
-                      >
-                        Detail</button
-                      ><button
-                        class="action-btn resi-btn"
-                        onclick="printResiMock('#ORD-8821')"
-                      >
-                        Print Resi
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#ORD-8822</td>
-                  <td>Siti Aminah</td>
-                  <td>09 Jul 2026</td>
-                  <td>Rp 395.000</td>
-                  <td><span class="status status-pending">Menunggu</span></td>
-                  <td><span class="status status-pending">Pending</span></td>
-                  <td>
-                    <div class="action-stack">
-                      <button
-                        class="action-btn"
-                        onclick="showOrderProcess('#ORD-8822', 'belum-bayar')"
-                      >
-                        Ingatkan Bayar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#ORD-8823</td>
-                  <td>Rina Gunawan (Afiliasi)</td>
-                  <td>08 Jul 2026</td>
-                  <td>Rp 450.000</td>
-                  <td><span class="status status-paid">Lunas</span></td>
-                  <td><span class="status status-pending">Diproses</span></td>
-                  <td>
-                    <div class="action-stack">
-                      <button
-                        class="action-btn"
-                        onclick="showOrderProcess('#ORD-8823', 'siap-kirim')"
-                      >
-                        Atur Pengiriman</button
-                      ><button
-                        class="action-btn resi-btn"
-                        onclick="printResiMock('#ORD-8823')"
-                      >
-                        Print Resi
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>#ORD-8824</td>
-                  <td>Ahmad Fauzi</td>
-                  <td>07 Jul 2026</td>
-                  <td>Rp 1.250.000</td>
-                  <td><span class="status status-paid">Lunas</span></td>
-                  <td><span class="status status-shipped">Dikirim</span></td>
-                  <td>
-                    <div class="action-stack">
-                      <button
-                        class="action-btn"
-                        onclick="
-                          showDemoModal(
-                            'Detail Transaksi',
-                            'Data lengkap transaksi akan diambil dari Database di Tahap 2.',
-                          )
-                        "
-                      >
-                        Detail</button
-                      ><button
-                        class="action-btn resi-btn"
-                        onclick="printResiMock('#ORD-8824')"
-                      >
-                        Print Resi
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+
+            <div class="order-toolbar">
+              <div class="order-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+                <input id="orderSearchInput" type="search" placeholder="Cari ID pesanan atau pelanggan" oninput="filterOrderRows()" />
+              </div>
+              <select class="filter-select" aria-label="Urutkan pesanan">
+                <option>Terbaru</option>
+                <option>Terlama</option>
+                <option>Nilai tertinggi</option>
+              </select>
+            </div>
+
+            <div class="table-section order-table-section">
+              <div class="table-scroll">
+                <table id="ordersTable">
+                  <thead>
+                    <tr>
+                      <th>Pesanan</th>
+                      <th>Pelanggan</th>
+                      <th>Total</th>
+                      <th>Pembayaran</th>
+                      <th>Pengiriman</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-order-status="Dikirim">
+                      <td><strong>#ORD-8821</strong><small>09 Jul 2026, 10:32</small></td>
+                      <td>Budi Santoso<small>JNE Reguler</small></td>
+                      <td>Rp 620.000</td>
+                      <td><span class="status status-paid">Lunas</span></td>
+                      <td><span class="status status-shipped" data-shipping-status>Dikirim</span></td>
+                      <td><div class="action-stack"><button class="action-btn" onclick="showOrderDetail('#ORD-8821')">Detail</button><button class="action-btn resi-printed" disabled>&#10003; Resi Tercetak</button></div></td>
+                    </tr>
+                    <tr data-order-status="Belum Bayar">
+                      <td><strong>#ORD-8822</strong><small>09 Jul 2026, 09:18</small></td>
+                      <td>Siti Aminah<small>Menunggu pilihan kurir</small></td>
+                      <td>Rp 395.000</td>
+                      <td><span class="status status-pending">Menunggu</span></td>
+                      <td><span class="status status-pending" data-shipping-status>Belum Diproses</span></td>
+                      <td><div class="action-stack"><button class="action-btn" onclick="showOrderDetail('#ORD-8822')">Detail</button><button class="action-btn" onclick="showOrderProcess('#ORD-8822', 'belum-bayar')">Ingatkan Bayar</button></div></td>
+                    </tr>
+                    <tr data-order-status="Perlu Dikirim">
+                      <td><strong>#ORD-8823</strong><small>08 Jul 2026, 16:45</small></td>
+                      <td>Rina Gunawan<small>SiCepat REG</small></td>
+                      <td>Rp 450.000</td>
+                      <td><span class="status status-paid">Lunas</span></td>
+                      <td><span class="status status-pending" data-shipping-status>Perlu Diproses</span></td>
+                      <td><div class="action-stack"><button class="action-btn" onclick="showOrderDetail('#ORD-8823')">Detail</button><button class="action-btn action-primary" onclick="processOrder(this, '#ORD-8823')">Proses Pesanan</button></div></td>
+                    </tr>
+                    <tr data-order-status="Perlu Dikirim">
+                      <td><strong>#ORD-8824</strong><small>08 Jul 2026, 14:02</small></td>
+                      <td>Ahmad Fauzi<small>J&amp;T Regular</small></td>
+                      <td>Rp 1.250.000</td>
+                      <td><span class="status status-paid">Lunas</span></td>
+                      <td><span class="status status-diproses" data-shipping-status>Siap Dikirim</span></td>
+                      <td><div class="action-stack"><button class="action-btn" onclick="showOrderDetail('#ORD-8824')">Detail</button><button class="action-btn resi-btn" onclick="printResiMock('#ORD-8824', this)">Cetak Resi</button></div></td>
+                    </tr>
+                    <tr data-order-status="Selesai">
+                      <td><strong>#ORD-8819</strong><small>06 Jul 2026, 11:24</small></td>
+                      <td>Nadia Putri<small>Pesanan diterima</small></td>
+                      <td>Rp 785.000</td>
+                      <td><span class="status status-paid">Lunas</span></td>
+                      <td><span class="status status-selesai" data-shipping-status>Selesai</span></td>
+                      <td><div class="action-stack"><button class="action-btn" onclick="showOrderDetail('#ORD-8819')">Detail</button><button class="action-btn resi-printed" disabled>&#10003; Resi Tercetak</button></div></td>
+                    </tr>
+                    <tr data-order-status="Pengembalian/Pembatalan">
+                      <td><strong>#ORD-8817</strong><small>05 Jul 2026, 13:10</small></td>
+                      <td>Dewi Lestari<small>Retur diajukan</small></td>
+                      <td>Rp 275.000</td>
+                      <td><span class="status status-review">Refund Ditinjau</span></td>
+                      <td><span class="status status-open" data-shipping-status>Pengembalian</span></td>
+                      <td><div class="action-stack"><button class="action-btn" onclick="switchTab('komplain')">Proses Pengembalian</button></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div id="orderEmptyState" class="order-empty" hidden>Tidak ada pesanan yang sesuai dengan filter.</div>
+            </div>
           </div>
         </div>
-
         <!-- SECTION: PRODUK -->
         <div id="section-produk" class="page-section">
           <div class="table-section">
@@ -2145,112 +2276,91 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
 
         <!-- SECTION: AFILIATOR -->
         <div id="section-afiliator" class="page-section">
+          <div class="affiliate-admin-grid">
+            <section class="config-group affiliate-settings-card">
+              <div class="config-group-title">Pengaturan Komisi Afiliasi</div>
+              <div class="affiliate-setting-row">
+                <div>
+                  <strong>Komisi default</strong>
+                  <span>Berlaku untuk afiliator tanpa pengaturan khusus.</span>
+                </div>
+                <div class="percent-input"><input type="number" value="10" min="0" max="100" aria-label="Komisi default" /><span>%</span></div>
+              </div>
+              <div class="affiliate-setting-row">
+                <div>
+                  <strong>Komisi maksimal</strong>
+                  <span>Batas komisi individual yang dapat diberikan admin.</span>
+                </div>
+                <div class="percent-input"><input type="number" value="20" min="0" max="100" aria-label="Komisi maksimal" /><span>%</span></div>
+              </div>
+              <button class="config-save-btn" onclick="showDemoModal('Komisi Disimpan', 'Pengaturan komisi global akan disimpan ke database pada Tahap 2.')">Simpan Komisi</button>
+            </section>
+
+            <section class="affiliate-summary-card" aria-label="Ringkasan program afiliasi">
+              <div class="config-group-title">Ringkasan Program</div>
+              <div class="affiliate-summary-list">
+                <div><span>Afiliator aktif</span><strong>300</strong></div>
+                <div><span>Menunggu verifikasi</span><strong>8</strong></div>
+                <div><span>Konversi bulan ini</span><strong>480</strong></div>
+                <div><span>Komisi pending</span><strong>Rp 4,8 jt</strong></div>
+              </div>
+            </section>
+          </div>
+
           <div class="table-section">
             <div class="table-header">
-              <div class="table-title">Mitra Afiliasi</div>
-              <input
-                type="text"
-                placeholder="Cari afiliator..."
-                style="
-                  padding: 10px 14px;
-                  border: 1px solid var(--neutral-300);
-                  border-radius: var(--r-md);
-                  font-family: var(--font);
-                "
-              />
+              <div>
+                <div class="table-title">Mitra Afiliasi</div>
+                <p class="table-subtitle">Atur persentase komisi langsung pada setiap akun.</p>
+              </div>
+              <input class="table-search-input" type="search" placeholder="Cari afiliator..." />
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nama / Email</th>
-                  <th>Total Konversi</th>
-                  <th>Total Komisi Cair</th>
-                  <th>Komisi Pending</th>
-                  <th>Status Akun</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Rina Gunawan<br /><span
-                      style="font-size: 1.2688rem; color: var(--neutral-400)"
-                      >rina@gmail.com</span
-                    >
-                  </td>
-                  <td>48</td>
-                  <td>Rp 2.400.000</td>
-                  <td>Rp 850.000</td>
-                  <td><span class="status status-paid">Aktif</span></td>
-                  <td>
-                    <button
-                      class="action-btn"
-                      onclick="
-                        showDemoModal(
-                          'Detail Afiliator',
-                          'Profil, tautan, konversi, dan komisi afiliator akan ditampilkan dari database pada Tahap 2.',
-                        )
-                      "
-                    >
-                      Detail
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Agus Setiawan<br /><span
-                      style="font-size: 1.2688rem; color: var(--neutral-400)"
-                      >agus99@gmail.com</span
-                    >
-                  </td>
-                  <td>12</td>
-                  <td>Rp 450.000</td>
-                  <td>Rp 0</td>
-                  <td><span class="status status-paid">Aktif</span></td>
-                  <td>
-                    <button
-                      class="action-btn"
-                      onclick="
-                        showDemoModal(
-                          'Detail Afiliator',
-                          'Profil, tautan, konversi, dan komisi afiliator akan ditampilkan dari database pada Tahap 2.',
-                        )
-                      "
-                    >
-                      Detail
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Dewi Lestari<br /><span
-                      style="font-size: 1.2688rem; color: var(--neutral-400)"
-                      >dewilestari@yahoo.com</span
-                    >
-                  </td>
-                  <td>3</td>
-                  <td>Rp 0</td>
-                  <td>Rp 120.000</td>
-                  <td><span class="status status-pending">Review</span></td>
-                  <td>
-                    <button
-                      class="action-btn"
-                      onclick="
-                        showDemoModal(
-                          'Detail Afiliator',
-                          'Profil, tautan, konversi, dan komisi afiliator akan ditampilkan dari database pada Tahap 2.',
-                        )
-                      "
-                    >
-                      Detail
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nama / Email</th>
+                    <th>Konversi</th>
+                    <th>Komisi Cair</th>
+                    <th>Pending</th>
+                    <th>Persentase</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Rina Gunawan</strong><small>rina@gmail.com</small></td>
+                    <td>48</td>
+                    <td>Rp 2.400.000</td>
+                    <td>Rp 850.000</td>
+                    <td><div class="percent-input table-percent"><input type="number" value="12" min="0" max="20" aria-label="Komisi Rina Gunawan" /><span>%</span></div></td>
+                    <td><span class="status status-paid">Aktif</span></td>
+                    <td><button class="action-btn" onclick="saveAffiliateCommission(this, 'Rina Gunawan')">Simpan</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Agus Setiawan</strong><small>agus99@gmail.com</small></td>
+                    <td>12</td>
+                    <td>Rp 450.000</td>
+                    <td>Rp 0</td>
+                    <td><div class="percent-input table-percent"><input type="number" value="10" min="0" max="20" aria-label="Komisi Agus Setiawan" /><span>%</span></div></td>
+                    <td><span class="status status-paid">Aktif</span></td>
+                    <td><button class="action-btn" onclick="saveAffiliateCommission(this, 'Agus Setiawan')">Simpan</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dewi Lestari</strong><small>dewilestari@yahoo.com</small></td>
+                    <td>3</td>
+                    <td>Rp 0</td>
+                    <td>Rp 120.000</td>
+                    <td><div class="percent-input table-percent"><input type="number" value="8" min="0" max="20" aria-label="Komisi Dewi Lestari" /><span>%</span></div></td>
+                    <td><span class="status status-pending">Review</span></td>
+                    <td><button class="action-btn" onclick="saveAffiliateCommission(this, 'Dewi Lestari')">Simpan</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-
         <!-- SECTION: STAFF -->
         <div id="section-staff" class="page-section">
           <div class="table-section">
@@ -2613,70 +2723,6 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
 
         <!-- SECTION: KONFIGURASI -->
         <div id="section-konfigurasi" class="page-section">
-          <!-- Pengaturan Komisi -->
-          <div class="config-group" style="margin-bottom: 24px">
-            <div class="config-group-title">Pengaturan Komisi Afiliasi</div>
-            <div class="config-grid">
-              <div>
-                <div class="config-field">
-                  <label class="config-label">Komisi Global (%)</label>
-                  <input
-                    type="number"
-                    class="config-input"
-                    value="10"
-                    min="0"
-                    max="100"
-                  />
-                  <p
-                    style="
-                      font-size: 1.25rem;
-                      color: var(--neutral-400);
-                      margin-top: 6px;
-                    "
-                  >
-                    Persentase komisi yang berlaku untuk semua produk secara
-                    default.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div class="config-field">
-                  <label class="config-label">Override Komisi Per-Produk</label>
-                  <div class="toggle-row" style="margin-top: 10px">
-                    <span style="font-size: 1.375rem; color: var(--neutral-600)"
-                      >Aktifkan pengaturan komisi individual per produk</span
-                    >
-                    <label class="toggle-wrap">
-                      <input type="checkbox" checked />
-                      <span class="toggle-slider"></span>
-                    </label>
-                  </div>
-                  <p
-                    style="
-                      font-size: 1.25rem;
-                      color: var(--neutral-400);
-                      margin-top: 10px;
-                    "
-                  >
-                    Jika aktif, komisi yang diset di tiap produk akan mengganti
-                    nilai global.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <button
-              class="config-save-btn"
-              onclick="
-                showDemoModal(
-                  'Simpan Konfigurasi',
-                  'Perubahan konfigurasi akan disimpan ke database pada Tahap 2.',
-                )
-              "
-            >
-              Simpan Pengaturan Komisi
-            </button>
-          </div>
-
           <!-- Pengaturan Afiliasi -->
           <div class="config-group" style="margin-bottom: 24px">
             <div class="config-group-title">Pengaturan Program Afiliasi</div>
@@ -3046,298 +3092,113 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
 
         <!-- SECTION: LAPORAN -->
         <div id="section-laporan" class="page-section">
-          <!-- Header -->
-          <div
-            class="reports-header"
-            style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-bottom: 24px;
-            "
-          >
-            <div class="inner-tabs">
-              <button
-                class="inner-tab-btn active"
-                id="laporanTab-penjualan"
-                onclick="switchLaporanTab('penjualan')"
-              >
-                Laporan Penjualan
-              </button>
-              <button
-                class="inner-tab-btn"
-                id="laporanTab-afiliasi"
-                onclick="switchLaporanTab('afiliasi')"
-              >
-                Laporan Afiliasi
-              </button>
+          <div class="report-page-head">
+            <div>
+              <div class="table-title">Laporan &amp; Analitik</div>
+              <p>Pantau omzet, pesanan, produk, dan kontribusi afiliasi.</p>
             </div>
-            <button
-              class="csv-export-btn"
-              style="
-                background: var(--white);
-                color: var(--primary);
-                border: 1.5px solid var(--primary);
-                padding: 11px 22px;
-                border-radius: var(--r-md);
-                font-weight: 600;
-                cursor: pointer;
-                font-family: var(--font);
-                font-size: 1.3125rem;
-              "
-              onclick="
-                showDemoModal(
-                  'Export CSV',
-                  'Fitur export data ke format CSV akan tersedia pada Tahap 2 setelah backend terhubung.',
-                )
-              "
-            >
-              Export CSV
-            </button>
+            <button class="csv-export-btn report-export" onclick="showDemoModal('Export CSV', 'Data laporan akan diekspor sesuai periode aktif setelah backend tersedia pada Tahap 2.')">Export CSV</button>
           </div>
 
-          <!-- Inner Tab: Penjualan -->
+          <div class="report-controls">
+            <label>
+              <span>Cabang</span>
+              <select class="filter-select"><option>Semua Penjualan</option><option>Website Utama</option></select>
+            </label>
+            <label>
+              <span>Periode</span>
+              <input class="filter-select" type="month" value="2026-07" />
+            </label>
+          </div>
+
+          <div class="inner-tabs report-tabs">
+            <button class="inner-tab-btn active" id="laporanTab-penjualan" onclick="switchLaporanTab('penjualan')">Penjualan</button>
+            <button class="inner-tab-btn" id="laporanTab-afiliasi" onclick="switchLaporanTab('afiliasi')">Afiliasi</button>
+          </div>
+
           <div id="laporan-penjualan" class="inner-tab-content active">
-            <div class="table-section" style="margin-bottom: 24px">
-              <div class="table-title" style="margin-bottom: 20px">
-                Pendapatan 7 Hari Terakhir
-              </div>
-              <div class="chart-wrap">
-                <div class="chart-bar-col">
-                  <div class="chart-val">2.1M</div>
-                  <div class="chart-bar" style="height: 60%"></div>
-                  <div class="chart-label">Rab</div>
-                </div>
-                <div class="chart-bar-col">
-                  <div class="chart-val">3.8M</div>
-                  <div class="chart-bar" style="height: 100%; opacity: 1"></div>
-                  <div class="chart-label">Kam</div>
-                </div>
-                <div class="chart-bar-col">
-                  <div class="chart-val">1.5M</div>
-                  <div class="chart-bar" style="height: 40%"></div>
-                  <div class="chart-label">Jum</div>
-                </div>
-                <div class="chart-bar-col">
-                  <div class="chart-val">2.9M</div>
-                  <div class="chart-bar" style="height: 76%"></div>
-                  <div class="chart-label">Sab</div>
-                </div>
-                <div class="chart-bar-col">
-                  <div class="chart-val">3.4M</div>
-                  <div class="chart-bar" style="height: 89%"></div>
-                  <div class="chart-label">Min</div>
-                </div>
-                <div class="chart-bar-col">
-                  <div class="chart-val">1.8M</div>
-                  <div class="chart-bar" style="height: 47%"></div>
-                  <div class="chart-label">Sen</div>
-                </div>
-                <div class="chart-bar-col">
-                  <div class="chart-val">2.4M</div>
-                  <div class="chart-bar" style="height: 63%"></div>
-                  <div class="chart-label">Sel</div>
-                </div>
-              </div>
+            <div class="report-kpi-grid">
+              <article class="report-kpi"><span>Omzet bulan ini</span><strong>Rp 24,58 jt</strong><small class="positive">+12,5% dari Juni</small></article>
+              <article class="report-kpi"><span>Pesanan</span><strong>412</strong><small>384 pesanan selesai</small></article>
+              <article class="report-kpi"><span>Rata-rata transaksi</span><strong>Rp 59.660</strong><small class="positive">+4,2%</small></article>
+              <article class="report-kpi"><span>Produk terjual</span><strong>680 pcs</strong><small>32 produk aktif</small></article>
             </div>
-            <div class="table-section">
-              <div class="table-title" style="margin-bottom: 20px">
-                Ringkasan Bulanan
+
+            <div class="report-visual-grid">
+              <article class="report-card">
+                <div class="report-card-head"><div><strong>Komposisi Omzet</strong><span>01-31 Juli 2026</span></div></div>
+                <div class="donut-report-wrap">
+                  <div class="donut-report" aria-label="Website 76 persen, afiliasi 18 persen, lainnya 6 persen"><div><strong>Rp 24,58 jt</strong><span>Total omzet</span></div></div>
+                  <div class="report-legend">
+                    <div><i style="background:#e8725a"></i><span>Website</span><strong>76%</strong></div>
+                    <div><i style="background:#252525"></i><span>Afiliasi</span><strong>18%</strong></div>
+                    <div><i style="background:#f0b9ac"></i><span>Lainnya</span><strong>6%</strong></div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="report-card">
+                <div class="report-card-head"><div><strong>Omzet per Kategori</strong><span>01-31 Juli 2026</span></div></div>
+                <div class="horizontal-chart">
+                  <div><span>Dress</span><i><b style="width:92%"></b></i><strong>8,4 jt</strong></div>
+                  <div><span>Wanita</span><i><b style="width:78%"></b></i><strong>7,1 jt</strong></div>
+                  <div><span>Couple</span><i><b style="width:61%"></b></i><strong>5,6 jt</strong></div>
+                  <div><span>Pria</span><i><b style="width:38%"></b></i><strong>3,5 jt</strong></div>
+                </div>
+              </article>
+
+              <article class="report-card report-card-wide">
+                <div class="report-card-head"><div><strong>Omzet 7 Hari Terakhir</strong><span>5-11 Juli 2026</span></div><span class="positive">+8,7%</span></div>
+                <div class="line-chart" aria-label="Grafik omzet tujuh hari">
+                  <div class="line-grid"><i></i><i></i><i></i><i></i></div>
+                  <svg viewBox="0 0 700 190" preserveAspectRatio="none" role="img" aria-label="Tren omzet harian">
+                    <defs><linearGradient id="salesArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8725a" stop-opacity=".28"/><stop offset="100%" stop-color="#e8725a" stop-opacity="0"/></linearGradient></defs>
+                    <path d="M0 152 L116 118 L233 137 L350 72 L466 94 L583 42 L700 63 L700 190 L0 190 Z" fill="url(#salesArea)"></path>
+                    <polyline points="0,152 116,118 233,137 350,72 466,94 583,42 700,63" fill="none" stroke="#e8725a" stroke-width="4" vector-effect="non-scaling-stroke"></polyline>
+                  </svg>
+                  <div class="line-labels"><span>Min</span><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="table-section report-table">
+              <div class="table-header"><div><div class="table-title">Produk Terlaris</div><p class="table-subtitle">Berdasarkan jumlah terjual pada periode aktif.</p></div></div>
+              <div class="table-scroll">
+                <table>
+                  <thead><tr><th>Produk</th><th>Kategori</th><th>Terjual</th><th>Omzet</th><th>Kontribusi</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Dress Batik Lestari</strong></td><td>Dress</td><td>90 pcs</td><td>Rp 5.235.000</td><td>21,3%</td></tr>
+                    <tr><td><strong>Set Couple Batik Harmoni</strong></td><td>Couple</td><td>80 pcs</td><td>Rp 5.040.000</td><td>20,5%</td></tr>
+                    <tr><td><strong>Kebaya Batik Modern</strong></td><td>Wanita</td><td>75 pcs</td><td>Rp 4.195.000</td><td>17,1%</td></tr>
+                    <tr><td><strong>Kemeja Batik Arjuna</strong></td><td>Pria</td><td>70 pcs</td><td>Rp 3.125.000</td><td>12,7%</td></tr>
+                  </tbody>
+                </table>
               </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Bulan</th>
-                    <th>Pendapatan</th>
-                    <th>Jumlah Pesanan</th>
-                    <th>Pertumbuhan</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Juli 2026</td>
-                    <td style="font-weight: 600">Rp 24.580.000</td>
-                    <td>412 pesanan</td>
-                    <td>
-                      <span style="color: #10b981; font-weight: 600">
-                        12.5%</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Juni 2026</td>
-                    <td style="font-weight: 600">Rp 21.840.000</td>
-                    <td>378 pesanan</td>
-                    <td>
-                      <span style="color: #10b981; font-weight: 600">
-                        8.2%</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Mei 2026</td>
-                    <td style="font-weight: 600">Rp 20.180.000</td>
-                    <td>341 pesanan</td>
-                    <td>
-                      <span style="color: #ef4444; font-weight: 600">
-                        2.1%</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>April 2026</td>
-                    <td style="font-weight: 600">Rp 20.610.000</td>
-                    <td>349 pesanan</td>
-                    <td>
-                      <span style="color: #10b981; font-weight: 600">
-                        5.7%</span
-                      >
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
 
-          <!-- Inner Tab: Afiliasi -->
           <div id="laporan-afiliasi" class="inner-tab-content">
-            <div class="table-section">
-              <div class="table-title" style="margin-bottom: 20px">
-                Top 5 Afiliator - Bulan Ini
+            <div class="report-kpi-grid">
+              <article class="report-kpi"><span>Penjualan afiliasi</span><strong>Rp 4,42 jt</strong><small class="positive">18% dari omzet</small></article>
+              <article class="report-kpi"><span>Total klik</span><strong>12.480</strong><small>3,85% konversi</small></article>
+              <article class="report-kpi"><span>Pesanan afiliasi</span><strong>480</strong><small class="positive">+15,4%</small></article>
+              <article class="report-kpi"><span>Komisi</span><strong>Rp 628 rb</strong><small>Rp 148 rb pending</small></article>
+            </div>
+            <div class="table-section report-table">
+              <div class="table-header"><div><div class="table-title">Performa Afiliator</div><p class="table-subtitle">Peringkat berdasarkan nilai penjualan bulan ini.</p></div></div>
+              <div class="table-scroll">
+                <table>
+                  <thead><tr><th>Peringkat</th><th>Afiliator</th><th>Klik</th><th>Pesanan</th><th>Penjualan</th><th>Komisi</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>#1</strong></td><td>Rina Gunawan</td><td>1.240</td><td>48</td><td>Rp 3.250.000</td><td>Rp 390.000</td></tr>
+                    <tr><td><strong>#2</strong></td><td>Hendra Wijaya</td><td>980</td><td>35</td><td>Rp 2.410.000</td><td>Rp 241.000</td></tr>
+                    <tr><td><strong>#3</strong></td><td>Agus Setiawan</td><td>760</td><td>28</td><td>Rp 1.820.000</td><td>Rp 182.000</td></tr>
+                  </tbody>
+                </table>
               </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Nama Afiliator</th>
-                    <th>Total Klik</th>
-                    <th>Konversi</th>
-                    <th>Komisi Total</th>
-                    <th>Conv. Rate (%)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <span
-                        style="
-                          font-weight: 700;
-                          color: var(--primary);
-                          font-size: 1.375rem;
-                        "
-                      >
-                        1</span
-                      >
-                    </td>
-                    <td>
-                      <strong>Rina Gunawan</strong><br /><span
-                        style="font-size: 1.25rem; color: var(--neutral-400)"
-                        >rina@gmail.com</span
-                      >
-                    </td>
-                    <td>1.240</td>
-                    <td>48</td>
-                    <td style="font-weight: 600">Rp 3.250.000</td>
-                    <td>
-                      <span style="font-weight: 600; color: #10b981"
-                        >3.87%</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span
-                        style="
-                          font-weight: 700;
-                          color: #d97706;
-                          font-size: 1.375rem;
-                        "
-                      >
-                        2</span
-                      >
-                    </td>
-                    <td>
-                      <strong>Hendra Wijaya</strong><br /><span
-                        style="font-size: 1.25rem; color: var(--neutral-400)"
-                        >hendra.w@gmail.com</span
-                      >
-                    </td>
-                    <td>890</td>
-                    <td>31</td>
-                    <td style="font-weight: 600">Rp 2.100.000</td>
-                    <td>
-                      <span style="font-weight: 600; color: #10b981"
-                        >3.48%</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span
-                        style="
-                          font-weight: 700;
-                          color: #6b7280;
-                          font-size: 1.375rem;
-                        "
-                      >
-                        3</span
-                      >
-                    </td>
-                    <td>
-                      <strong>Agus Setiawan</strong><br /><span
-                        style="font-size: 1.25rem; color: var(--neutral-400)"
-                        >agus99@gmail.com</span
-                      >
-                    </td>
-                    <td>620</td>
-                    <td>12</td>
-                    <td style="font-weight: 600">Rp 810.000</td>
-                    <td>
-                      <span style="font-weight: 600; color: #10b981"
-                        >1.94%</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>
-                      <strong>Farida Nur</strong><br /><span
-                        style="font-size: 1.25rem; color: var(--neutral-400)"
-                        >farida.nur@gmail.com</span
-                      >
-                    </td>
-                    <td>480</td>
-                    <td>9</td>
-                    <td style="font-weight: 600">Rp 610.000</td>
-                    <td>
-                      <span style="font-weight: 600; color: #d97706"
-                        >1.88%</span
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>
-                      <strong>Dewi Lestari</strong><br /><span
-                        style="font-size: 1.25rem; color: var(--neutral-400)"
-                        >dewilestari@yahoo.com</span
-                      >
-                    </td>
-                    <td>210</td>
-                    <td>3</td>
-                    <td style="font-weight: 600">Rp 120.000</td>
-                    <td>
-                      <span style="font-weight: 600; color: #ef4444"
-                        >1.43%</span
-                      >
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
         </div>
-
         <!-- SECTION: KOMPLAIN -->
         <div id="section-komplain" class="page-section">
           <div class="table-section">
@@ -3620,24 +3481,91 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
           .querySelectorAll(".order-status-chip")
           .forEach((btn) => btn.classList.remove("active"));
         button.classList.add("active");
+        const table = document.getElementById("ordersTable");
+        if (table) table.dataset.activeFilter = label;
+        filterOrderRows();
+      }
+
+      function filterOrderRows() {
+        const table = document.getElementById("ordersTable");
+        if (!table) return;
+        const activeFilter = table.dataset.activeFilter || "Semua";
+        const query = (document.getElementById("orderSearchInput")?.value || "")
+          .trim()
+          .toLowerCase();
+        let visible = 0;
+        table.querySelectorAll("tbody tr").forEach((row) => {
+          const matchesStatus =
+            activeFilter === "Semua" || row.dataset.orderStatus === activeFilter;
+          const matchesQuery = !query || row.textContent.toLowerCase().includes(query);
+          const show = matchesStatus && matchesQuery;
+          row.hidden = !show;
+          if (show) visible += 1;
+        });
+        const empty = document.getElementById("orderEmptyState");
+        if (empty) empty.hidden = visible !== 0;
+      }
+
+      function openOrderStatus(label) {
+        switchTab("pesanan");
+        const chip = Array.from(
+          document.querySelectorAll(".order-status-chip"),
+        ).find((button) => button.dataset.orderFilter === label);
+        if (chip) setOrderStatusTab(chip, label);
+      }
+
+      function showOrderDetail(orderId) {
         showDemoModal(
-          "Filter Pesanan",
-          `Menampilkan kategori pesanan: ${label}. Data asli dan jumlah otomatis akan disambungkan ke database pada Tahap 2.`,
+          "Detail Pesanan " + orderId,
+          "Detail produk, alamat, pembayaran, kurir, nomor resi, dan riwayat status akan diambil dari database pada Tahap 2.",
         );
       }
 
       function showOrderProcess(orderId, status) {
         const message =
           status === "belum-bayar"
-            ? `${orderId} masih menunggu pembayaran. Sistem akan menampilkan tombol reminder dan status ini ke customer.`
-            : `${orderId} dikonfirmasi tersedia dan siap dikirim. Langkah berikutnya adalah cetak resi ukuran label standar untuk ditempel pada paket.`;
-        showDemoModal("Proses Order", message);
+            ? orderId + " masih menunggu pembayaran. Pengingat pembayaran siap dikirim ke customer."
+            : orderId + " siap masuk ke proses pengemasan dan pengiriman.";
+        showDemoModal("Proses Pesanan", message);
       }
 
-      function printResiMock(orderId) {
+      function processOrder(button, orderId) {
+        const row = button.closest("tr");
+        const status = row?.querySelector("[data-shipping-status]");
+        if (status) {
+          status.textContent = "Siap Dikirim";
+          status.className = "status status-diproses";
+          status.setAttribute("data-shipping-status", "");
+        }
+        button.textContent = "Cetak Resi";
+        button.className = "action-btn resi-btn";
+        button.onclick = () => printResiMock(orderId, button);
         showDemoModal(
-          "Print Resi",
-          `${orderId} akan menghasilkan label/resi otomatis berdasarkan alamat customer dan layanan kurir. Integrasi agregator logistik masuk Tahap 2.`,
+          "Pesanan Diproses",
+          orderId + " sudah dikonfirmasi dan dikemas. Cetak resi satu kali sebelum paket diserahkan ke kurir.",
+        );
+      }
+
+      function printResiMock(orderId, button) {
+        if (button?.dataset.printed === "true") return;
+        if (button) {
+          button.dataset.printed = "true";
+          button.innerHTML = "&#10003; Resi Tercetak";
+          button.className = "action-btn resi-printed";
+          button.disabled = true;
+        }
+        showDemoModal(
+          "Resi Berhasil Dicetak",
+          orderId + " sudah memiliki resi tercetak. Tombol dikunci agar resi tidak tercetak dua kali.",
+        );
+      }
+
+      function saveAffiliateCommission(button, affiliateName) {
+        const input = button.closest("tr")?.querySelector(".table-percent input");
+        const value = input?.value || "0";
+        showDemoModal(
+          "Komisi Diperbarui",
+          "Komisi " + affiliateName + " diatur menjadi " + value + "%. Nilai ini akan disimpan permanen melalui backend pada Tahap 2.",
         );
       }
       function showDemoModal(title, message) {

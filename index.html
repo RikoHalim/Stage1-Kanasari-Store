@@ -495,13 +495,19 @@
             </button>
           </div>
 
-          <div class="subcategory-filter-tabs" role="group" aria-label="Filter subkategori produk">
-            <button class="sub-filter-tab active" data-subcat="all" onclick="filterSubTab('all')">Semua Pilihan</button>
-            <button class="sub-filter-tab" data-subcat="new" onclick="filterSubTab('new')">New Release</button>
-            <button class="sub-filter-tab" data-subcat="best" onclick="filterSubTab('best')">Bestseller</button>
-            <button class="sub-filter-tab" data-subcat="popular" onclick="filterSubTab('popular')">Populer</button>
-            <button class="sub-filter-tab" data-subcat="low" onclick="filterSubTab('low')">Harga Terendah</button>
-            <button class="sub-filter-tab" data-subcat="high" onclick="filterSubTab('high')">Harga Tertinggi</button>
+          <div class="subcategory-filter-tabs" role="group" aria-label="Urutkan produk">
+            <button class="sub-filter-tab active" data-subcat="popular" onclick="filterSubTab('popular')">Populer</button>
+            <button class="sub-filter-tab" data-subcat="new" onclick="filterSubTab('new')">Terbaru</button>
+            <button class="sub-filter-tab" data-subcat="best" onclick="filterSubTab('best')">Terlaris</button>
+            <button
+              class="sub-filter-tab sub-filter-price"
+              id="price-sort-tab"
+              data-subcat="low"
+              onclick="togglePriceSort(this)"
+              aria-label="Urutkan harga dari rendah ke tinggi"
+            >
+              Harga <span class="price-sort-icon" aria-hidden="true">&#8597;</span>
+            </button>
           </div>
 
           <!-- Products Grid -->
