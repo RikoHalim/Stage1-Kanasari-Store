@@ -1603,11 +1603,43 @@
       .shipping-fields select, .shipping-fields input { width: 100%; min-height: 40px; padding: 8px 10px; border: 1px solid var(--neutral-200); border-radius: 6px; background: var(--white); font: inherit; font-size: 0.86rem; }
       .shipping-note { margin-top: 14px; padding: 11px 12px; border-radius: 6px; background: var(--neutral-100); color: var(--neutral-600); font-size: 0.8rem; line-height: 1.45; }
       .shipping-modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+      .pickup-address-field { margin-top: 14px; padding: 12px; border: 1px solid var(--neutral-200); border-radius: 7px; background: var(--neutral-50); }
+      .pickup-address-field[hidden] { display: none; }
+      .pickup-address-field label { display: grid; gap: 6px; color: var(--neutral-600); font-size: .8rem; }
+      .pickup-address-field select { width: 100%; min-height: 40px; padding: 8px 10px; border: 1px solid var(--neutral-200); border-radius: 6px; background: var(--white); font: inherit; font-size: .86rem; }
+      .pickup-address-preview { margin-top: 8px; color: var(--neutral-500); font-size: .78rem; line-height: 1.45; }
+      .address-section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+      .address-section-head .config-group-title { flex: 1; margin-bottom: 0; }
+      .address-section-copy { margin: -4px 0 14px; color: var(--neutral-500); font-size: .84rem; }
+      .store-address-list { display: grid; gap: 10px; }
+      .store-address-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; padding: 14px; border: 1px solid var(--neutral-200); border-radius: 8px; background: var(--neutral-50); }
+      .store-address-card.is-default { border-color: var(--primary-light); background: var(--primary-pale); }
+      .store-address-name { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-bottom: 4px; }
+      .store-address-name strong { color: var(--neutral-900); font-size: .98rem; }
+      .address-tag { padding: 2px 6px; border-radius: 4px; background: var(--white); border: 1px solid var(--neutral-200); color: var(--neutral-600); font-size: .68rem; line-height: 1.3; }
+      .address-tag.primary { border-color: var(--primary-light); color: var(--primary-dark); }
+      .store-address-contact { color: var(--neutral-700); font-size: .82rem; }
+      .store-address-text { max-width: 760px; margin-top: 5px; color: var(--neutral-500); font-size: .8rem; line-height: 1.45; }
+      .store-address-coord { margin-top: 5px; color: var(--neutral-400); font-size: .72rem; }
+      .store-address-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-content: flex-start; gap: 6px; }
+      .address-modal-card { width: min(94vw, 620px); max-height: min(90vh, 760px); overflow-y: auto; background: var(--white); padding: 22px; border-radius: 10px; box-shadow: 0 18px 50px rgba(23,23,23,.2); }
+      .address-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+      .address-form-grid .full { grid-column: 1 / -1; }
+      .address-form-grid label { display: grid; gap: 5px; color: var(--neutral-600); font-size: .8rem; }
+      .address-form-grid input, .address-form-grid select, .address-form-grid textarea { width: 100%; min-height: 39px; padding: 8px 10px; border: 1px solid var(--neutral-200); border-radius: 6px; font: inherit; font-size: .84rem; resize: vertical; }
+      .address-flags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 13px; padding: 11px; border-radius: 6px; background: var(--neutral-50); }
+      .address-flags label { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; }
       @media (max-width: 768px) {
         .order-status-tabs { width: 100%; gap: 3px !important; margin-bottom: 14px; padding: 3px 3px 5px; border-radius: 6px; }
         .order-status-chip { min-height: 29px; padding: 4px 7px !important; font-size: 0.72rem !important; }
         .shipping-modal-card { padding: 18px; }
         .shipping-methods, .shipping-fields { grid-template-columns: 1fr; }
+        .store-address-card { grid-template-columns: 1fr; gap: 10px; }
+        .store-address-actions { justify-content: flex-start; }
+        .address-section-head { align-items: stretch; flex-direction: column; }
+        .address-section-head .action-btn { align-self: flex-start; }
+        .address-form-grid { grid-template-columns: 1fr; }
+        .address-form-grid .full { grid-column: auto; }
         .shipping-modal-actions .action-btn { flex: 1; }
       }
 
@@ -2902,6 +2934,16 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
             </button>
           </div>
 
+          <!-- Alamat toko dan pickup -->
+          <div class="config-group" style="margin-bottom: 16px">
+            <div class="address-section-head">
+              <div class="config-group-title">Alamat Saya</div>
+              <button class="action-btn action-primary" onclick="openStoreAddressModal()">Tambah Alamat Baru</button>
+            </div>
+            <p class="address-section-copy">Kelola alamat toko, pickup kurir, dan pengembalian. Pastikan kontak serta titik koordinat mudah ditemukan kurir.</p>
+            <div id="storeAddressList" class="store-address-list"></div>
+          </div>
+
           <!-- Pengaturan Toko -->
           <div class="config-group">
             <div class="config-group-title">Pengaturan Toko</div>
@@ -2933,14 +2975,7 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
                     value="+62 812-3456-7890"
                   />
                 </div>
-                <div class="config-field">
-                  <label class="config-label">Alamat Toko</label>
-                  <input
-                    type="text"
-                    class="config-input"
-                    value="Jl. Batik Nusantara No. 12, Yogyakarta"
-                  />
-                </div>
+
               </div>
             </div>
             <div class="config-grid">
@@ -3652,6 +3687,129 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
         showDemoModal("Proses Pesanan", message);
       }
 
+      const defaultStoreAddresses = [
+        { id: "kanasari-hq", label: "Kanasari Store HQ", contact: "Kanasari Store", phone: "+62 812-3456-7890", province: "DI Yogyakarta", city: "Kota Yogyakarta", district: "Gondomanan", postal: "55122", address: "Jl. Batik Nusantara No. 12, Prawirodirjan", coordinate: "-7.7956, 110.3695", isPickup: true, isReturn: true, isDefaultPickup: true },
+        { id: "gudang-bantul", label: "Gudang Bantul", contact: "Raka - Tim Gudang", phone: "+62 813-2200-8844", province: "DI Yogyakarta", city: "Kabupaten Bantul", district: "Kasihan", postal: "55184", address: "Jl. Bibis Raya No. 8, Tamantirto", coordinate: "-7.8238, 110.3312", isPickup: true, isReturn: false, isDefaultPickup: false },
+      ];
+
+      function escapeStoreText(value) {
+        return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char]);
+      }
+
+      function getStoreAddresses() {
+        try {
+          const saved = JSON.parse(localStorage.getItem("kanasari_store_addresses") || "null");
+          return Array.isArray(saved) && saved.length ? saved : defaultStoreAddresses.map((address) => ({ ...address }));
+        } catch (error) {
+          return defaultStoreAddresses.map((address) => ({ ...address }));
+        }
+      }
+
+      function saveStoreAddresses(addresses) {
+        localStorage.setItem("kanasari_store_addresses", JSON.stringify(addresses));
+      }
+
+      function renderStoreAddresses() {
+        const list = document.getElementById("storeAddressList");
+        if (!list) return;
+        const addresses = getStoreAddresses();
+        list.innerHTML = addresses.map((address) => `
+          <article class="store-address-card${address.isDefaultPickup ? " is-default" : ""}" data-address-id="${escapeStoreText(address.id)}" data-pickup="${address.isPickup}">
+            <div>
+              <div class="store-address-name">
+                <strong>${escapeStoreText(address.label)}</strong>
+                ${address.isDefaultPickup ? '<span class="address-tag primary">Pickup Utama</span>' : ""}
+                ${address.isPickup ? '<span class="address-tag">Alamat Pickup</span>' : ""}
+                ${address.isReturn ? '<span class="address-tag">Pengembalian</span>' : ""}
+              </div>
+              <div class="store-address-contact">${escapeStoreText(address.contact)} &middot; ${escapeStoreText(address.phone)}</div>
+              <div class="store-address-text">${escapeStoreText(address.address)}, ${escapeStoreText(address.district)}, ${escapeStoreText(address.city)}, ${escapeStoreText(address.province)} ${escapeStoreText(address.postal)}</div>
+              <div class="store-address-coord">Titik koordinat: ${escapeStoreText(address.coordinate)}</div>
+            </div>
+            <div class="store-address-actions">
+              ${address.isPickup && !address.isDefaultPickup ? `<button class="action-btn" onclick="setDefaultPickupAddress('${escapeStoreText(address.id)}')">Jadikan Pickup Utama</button>` : ""}
+              <button class="action-btn" onclick="openStoreAddressModal('${escapeStoreText(address.id)}')">Ubah</button>
+              ${!address.isDefaultPickup ? `<button class="action-btn action-btn-danger" onclick="deleteStoreAddress('${escapeStoreText(address.id)}')">Hapus</button>` : ""}
+            </div>
+          </article>`).join("");
+      }
+
+      function openStoreAddressModal(addressId = "") {
+        const address = getStoreAddresses().find((item) => item.id === addressId) || { id: "", label: "", contact: "", phone: "", province: "DI Yogyakarta", city: "", district: "", postal: "", address: "", coordinate: "", isPickup: true, isReturn: false, isDefaultPickup: false };
+        document.getElementById("demoModal")?.remove();
+        document.body.insertAdjacentHTML("beforeend", `
+          <div id="demoModal" style="position:fixed;inset:0;background:rgba(0,0,0,.42);backdrop-filter:blur(4px);z-index:9999;display:flex;justify-content:center;align-items:center;padding:16px;">
+            <form class="address-modal-card" onsubmit="submitStoreAddress(event)">
+              <div class="shipping-modal-head"><div><h3>${address.id ? "Ubah Alamat" : "Tambah Alamat Baru"}</h3><p>Lengkapi kontak, wilayah, dan titik lokasi kurir.</p></div><button type="button" class="shipping-modal-close" onclick="document.getElementById('demoModal').remove()" aria-label="Tutup">&#10005;</button></div>
+              <input type="hidden" name="id" value="${escapeStoreText(address.id)}">
+              <div class="address-form-grid">
+                <label>Label alamat<input name="label" value="${escapeStoreText(address.label)}" placeholder="Contoh: Gudang Utama" required></label>
+                <label>Nama kontak<input name="contact" value="${escapeStoreText(address.contact)}" required></label>
+                <label>No. handphone<input name="phone" value="${escapeStoreText(address.phone)}" required></label>
+                <label>Provinsi<select name="province" required><option>DI Yogyakarta</option><option>Jawa Tengah</option><option>Jawa Timur</option><option>DKI Jakarta</option><option>Bali</option></select></label>
+                <label>Kota/Kabupaten<input name="city" value="${escapeStoreText(address.city)}" required></label>
+                <label>Kecamatan<input name="district" value="${escapeStoreText(address.district)}" required></label>
+                <label>Kode pos<input name="postal" inputmode="numeric" value="${escapeStoreText(address.postal)}" required></label>
+                <label>Titik koordinat<input name="coordinate" value="${escapeStoreText(address.coordinate)}" placeholder="-7.7956, 110.3695" required></label>
+                <label class="full">Alamat lengkap<textarea name="address" rows="3" required>${escapeStoreText(address.address)}</textarea></label>
+              </div>
+              <div class="address-flags">
+                <label><input type="checkbox" name="isPickup" ${address.isPickup ? "checked" : ""}> Alamat pickup</label>
+                <label><input type="checkbox" name="isReturn" ${address.isReturn ? "checked" : ""}> Alamat pengembalian</label>
+                <label><input type="checkbox" name="isDefaultPickup" ${address.isDefaultPickup ? "checked" : ""}> Jadikan pickup utama</label>
+              </div>
+              <div class="shipping-modal-actions"><button type="button" class="action-btn" onclick="document.getElementById('demoModal').remove()">Batal</button><button type="submit" class="action-btn action-primary">Simpan Alamat</button></div>
+            </form>
+          </div>`);
+        const province = document.querySelector('.address-modal-card select[name="province"]');
+        if (province) province.value = address.province;
+      }
+
+      function submitStoreAddress(event) {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const data = new FormData(form);
+        const id = data.get("id") || "address-" + Date.now();
+        const address = { id, label: data.get("label"), contact: data.get("contact"), phone: data.get("phone"), province: data.get("province"), city: data.get("city"), district: data.get("district"), postal: data.get("postal"), address: data.get("address"), coordinate: data.get("coordinate"), isPickup: data.has("isPickup") || data.has("isDefaultPickup"), isReturn: data.has("isReturn"), isDefaultPickup: data.has("isDefaultPickup") };
+        let addresses = getStoreAddresses();
+        if (address.isDefaultPickup) addresses = addresses.map((item) => ({ ...item, isDefaultPickup: false }));
+        const index = addresses.findIndex((item) => item.id === id);
+        if (index >= 0) addresses[index] = address; else addresses.push(address);
+        if (!addresses.some((item) => item.isDefaultPickup)) address.isDefaultPickup = address.isPickup;
+        saveStoreAddresses(addresses);
+        renderStoreAddresses();
+        document.getElementById("demoModal")?.remove();
+        showDemoModal("Alamat Disimpan", "Alamat " + address.label + " siap digunakan untuk pengaturan pickup kurir.");
+      }
+
+      function setDefaultPickupAddress(addressId) {
+        const addresses = getStoreAddresses().map((address) => ({ ...address, isDefaultPickup: address.id === addressId, isPickup: address.id === addressId ? true : address.isPickup }));
+        saveStoreAddresses(addresses);
+        renderStoreAddresses();
+        showDemoModal("Pickup Utama Diperbarui", "Alamat pickup utama akan dipilih otomatis saat seller mengatur penjemputan kurir.");
+      }
+
+      function deleteStoreAddress(addressId) {
+        const addresses = getStoreAddresses().filter((address) => address.id !== addressId);
+        saveStoreAddresses(addresses);
+        renderStoreAddresses();
+        showDemoModal("Alamat Dihapus", "Alamat yang tidak digunakan telah dihapus dari daftar toko.");
+      }
+
+      function pickupAddressOptionsHtml() {
+        return getStoreAddresses().filter((address) => address.isPickup).sort((a, b) => Number(b.isDefaultPickup) - Number(a.isDefaultPickup)).map((address) => `<option value="${escapeStoreText(address.id)}">${escapeStoreText(address.label)}${address.isDefaultPickup ? " (Utama)" : ""}</option>`).join("");
+      }
+
+      function updatePickupAddressPreview() {
+        const select = document.getElementById("pickupAddressSelect");
+        const preview = document.getElementById("pickupAddressPreview");
+        if (!select || !preview) return;
+        const address = getStoreAddresses().find((item) => item.id === select.value);
+        preview.textContent = address ? address.contact + " | " + address.phone + " | " + address.address + ", " + address.district + ", " + address.city + " " + address.postal : "Belum ada alamat pickup aktif.";
+      }
+
+      document.addEventListener("DOMContentLoaded", renderStoreAddresses);
+
       function openShippingSetup(button, orderId) {
         const existing = document.getElementById("demoModal");
         if (existing) existing.remove();
@@ -3674,6 +3832,10 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
                 <label>Jasa kirim<input value="${courier}" readonly></label>
                 <label><span id="shippingScheduleLabel">Batas drop-off</span><select id="shippingSchedule" required><option value="Hari ini, sebelum 18:00">Hari ini, sebelum 18:00</option><option value="Besok, sebelum 12:00">Besok, sebelum 12:00</option></select></label>
               </div>
+              <div id="pickupAddressField" class="pickup-address-field" hidden>
+                <label>Alamat pickup<select id="pickupAddressSelect" onchange="updatePickupAddressPreview()">${pickupAddressOptionsHtml()}</select></label>
+                <div id="pickupAddressPreview" class="pickup-address-preview"></div>
+              </div>
               <div class="shipping-note" id="shippingMethodNote">Nomor resi dibuat setelah pengiriman dikonfirmasi. Cetak label dan tempelkan pada paket sebelum diserahkan ke counter.</div>
               <div class="shipping-modal-actions"><button type="button" class="action-btn" onclick="document.getElementById('demoModal').remove()">Batal</button><button type="submit" class="action-btn action-primary">Konfirmasi Pengiriman</button></div>
             </form>
@@ -3686,14 +3848,18 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
         const label = document.getElementById("shippingScheduleLabel");
         const schedule = document.getElementById("shippingSchedule");
         const note = document.getElementById("shippingMethodNote");
-        if (!label || !schedule || !note) return;
+        const pickupField = document.getElementById("pickupAddressField");
+        if (!label || !schedule || !note || !pickupField) return;
         if (method === "Pick-up") {
           label.textContent = "Jadwal penjemputan";
           schedule.innerHTML = '<option value="Besok, 09:00 - 12:00">Besok, 09:00 - 12:00</option><option value="Besok, 13:00 - 16:00">Besok, 13:00 - 16:00</option>';
-          note.textContent = "Siapkan paket sebelum jadwal penjemputan. Resi dan label tersedia setelah pengiriman dikonfirmasi.";
+          pickupField.hidden = false;
+          updatePickupAddressPreview();
+          note.textContent = "Siapkan paket di alamat pickup sebelum jadwal penjemputan. Resi dan label tersedia setelah pengiriman dikonfirmasi.";
         } else {
           label.textContent = "Batas drop-off";
           schedule.innerHTML = '<option value="Hari ini, sebelum 18:00">Hari ini, sebelum 18:00</option><option value="Besok, sebelum 12:00">Besok, sebelum 12:00</option>';
+          pickupField.hidden = true;
           note.textContent = "Nomor resi dibuat setelah pengiriman dikonfirmasi. Cetak label dan tempelkan pada paket sebelum diserahkan ke counter.";
         }
       }
@@ -3705,19 +3871,25 @@ Temukan koleksi batik pilihan dengan motif eksklusif dan kualitas premium.</text
         const status = row?.querySelector("[data-shipping-status]");
         const method = document.querySelector('input[name="shippingMethod"]:checked')?.value || "Drop-off";
         const schedule = document.getElementById("shippingSchedule")?.value || "jadwal dipilih";
+        const pickupAddressId = method === "Pick-up" ? document.getElementById("pickupAddressSelect")?.value : "";
+        const pickupAddress = getStoreAddresses().find((address) => address.id === pickupAddressId);
         if (status) {
           status.textContent = "Siap Diserahkan";
           status.className = "status status-diproses";
           status.setAttribute("data-shipping-status", "");
         }
-        if (row) row.dataset.shippingMethod = method;
+        if (row) {
+          row.dataset.shippingMethod = method;
+          row.dataset.pickupAddress = pickupAddress?.label || "";
+        }
         if (button) {
           button.textContent = "Cetak Resi";
           button.className = "action-btn resi-btn";
           button.onclick = () => printResiMock(orderId, button);
         }
         document.getElementById("demoModal")?.remove();
-        showDemoModal("Pengiriman Diatur", orderId + " menggunakan " + method + " (" + schedule + "). Cetak resi, kemas paket, lalu serahkan ke kurir.");
+        const pickupCopy = pickupAddress ? " dari " + pickupAddress.label : "";
+        showDemoModal("Pengiriman Diatur", orderId + " menggunakan " + method + pickupCopy + " (" + schedule + "). Cetak resi, kemas paket, lalu serahkan ke kurir.");
       }
 
       function processOrder(button, orderId) {
